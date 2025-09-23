@@ -63,6 +63,46 @@ namespace ChillCofee.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_group_90px_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_group_90px_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_money_90px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_money_90px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_Money_Bag_Bitcoin_90px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Money_Bag_Bitcoin_90px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_user_filled_90px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_user_filled_90px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Screenshot_2025_09_16_000942_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("Screenshot_2025-09-16_000942-removebg-preview", resourceCulture);

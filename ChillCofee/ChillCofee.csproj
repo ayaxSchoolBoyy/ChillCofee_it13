@@ -46,6 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAddUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminAddUsers.Designer.cs">
+      <DependentUpon>AdminAddUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAddUsersData.cs" />
+    <Compile Include="AdminDashboardForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardForm.Designer.cs">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +79,12 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminAddUsers.resx">
+      <DependentUpon>AdminAddUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardForm.resx">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +119,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Screenshot_2025-09-16_000942-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icons8_group_90px_1.png" />
+    <Content Include="Resources\icons8_money_90px.png" />
+    <Content Include="Resources\icons8_Money_Bag_Bitcoin_90px.png" />
+    <Content Include="Resources\icons8_user_filled_90px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
