@@ -177,7 +177,7 @@ namespace ChillCofee
 
         private void adminAddUsers_updateBtn_Click(object sender, EventArgs e)
         {
-            if (emptyFields())
+             if (emptyFields())
             {
                 MessageBox.Show("All fields are required to be filled.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -192,7 +192,7 @@ namespace ChillCofee
                         try
                         {
                             connect.Open();
-  
+
                             string updateData = "UPDATE users SET username = @usern, password = @pass, role = @role, status = @status, profile_image = @imagePath WHERE id = @id";
 
                             using (SqlCommand cmd = new SqlCommand(updateData, connect))
@@ -203,7 +203,7 @@ namespace ChillCofee
                                 cmd.Parameters.AddWithValue("@status", adminAddUsers_status.Text.Trim());
                                 cmd.Parameters.AddWithValue("@id", id);
 
-                               
+
                                 cmd.ExecuteNonQuery();
                                 clearFields();
                                 MessageBox.Show("Updated successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);

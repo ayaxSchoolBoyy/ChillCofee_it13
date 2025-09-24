@@ -11,7 +11,7 @@ namespace ChillCofee
     internal class AdminAddProductsData
     {
         public int ID { set; get; }
-        string ProductID { set; get; } 
+        public string ProductID { set; get; } 
         public string ProductName { set; get; } 
         public string Type { set; get; } 
         public string Stock { set; get; } 

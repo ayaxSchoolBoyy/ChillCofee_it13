@@ -42,6 +42,7 @@
             this.close = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.adminDashboardForm1 = new ChillCofee.AdminDashboardForm();
             this.adminAddProducts1 = new ChillCofee.AdminAddProducts();
             this.adminAddUsers1 = new ChillCofee.AdminAddUsers();
             this.panel1.SuspendLayout();
@@ -115,6 +116,7 @@
             this.button4.TabIndex = 34;
             this.button4.Text = "Add Products";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button2
             // 
@@ -128,6 +130,7 @@
             this.button2.TabIndex = 33;
             this.button2.Text = "Add Cashier";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -141,6 +144,7 @@
             this.button1.TabIndex = 31;
             this.button1.Text = "Dashboard";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -209,6 +213,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.adminDashboardForm1);
             this.panel2.Controls.Add(this.adminAddProducts1);
             this.panel2.Controls.Add(this.adminAddUsers1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -216,6 +221,13 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1240, 739);
             this.panel2.TabIndex = 31;
+            // 
+            // adminDashboardForm1
+            // 
+            this.adminDashboardForm1.Location = new System.Drawing.Point(0, 0);
+            this.adminDashboardForm1.Name = "adminDashboardForm1";
+            this.adminDashboardForm1.Size = new System.Drawing.Size(1240, 739);
+            this.adminDashboardForm1.TabIndex = 2;
             // 
             // adminAddProducts1
             // 
@@ -272,5 +284,6 @@
         private AdminAddUsers adminAddUsers1;
         private System.Windows.Forms.Button logout_btn;
         private AdminAddProducts adminAddProducts1;
+        private AdminDashboardForm adminDashboardForm1;
     }
 }
