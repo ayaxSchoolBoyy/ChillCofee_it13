@@ -15,3 +15,5 @@
 );
 
 SELECT * FROM products;
+
+SELECT * FROM products;

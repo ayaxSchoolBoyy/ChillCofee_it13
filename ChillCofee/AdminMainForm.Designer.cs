@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.logout_btn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -38,26 +37,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.close = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.adminDashboardForm1 = new ChillCofee.AdminDashboardForm();
             this.adminAddProducts1 = new ChillCofee.AdminAddProducts();
             this.adminAddUsers1 = new ChillCofee.AdminAddUsers();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1500, 51);
-            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // panel1
             // 
@@ -179,6 +170,17 @@
             this.label2.TabIndex = 31;
             this.label2.Text = "Admin\'s Portal";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.adminDashboardForm1);
+            this.panel2.Controls.Add(this.adminAddProducts1);
+            this.panel2.Controls.Add(this.adminAddUsers1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(260, 51);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1240, 739);
+            this.panel2.TabIndex = 31;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -189,6 +191,15 @@
             this.pictureBox1.Size = new System.Drawing.Size(174, 170);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1500, 51);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // close
             // 
@@ -210,17 +221,6 @@
             this.label1.Size = new System.Drawing.Size(246, 17);
             this.label1.TabIndex = 30;
             this.label1.Text = "Chill Coffee Management System";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.adminDashboardForm1);
-            this.panel2.Controls.Add(this.adminAddProducts1);
-            this.panel2.Controls.Add(this.adminAddUsers1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(260, 51);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1240, 739);
-            this.panel2.TabIndex = 31;
             // 
             // adminDashboardForm1
             // 
@@ -259,21 +259,17 @@
             this.Text = "AdminMainForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label close;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -285,5 +281,8 @@
         private System.Windows.Forms.Button logout_btn;
         private AdminAddProducts adminAddProducts1;
         private AdminDashboardForm adminDashboardForm1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label close;
+        private System.Windows.Forms.Label label1;
     }
 }
