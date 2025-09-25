@@ -35,6 +35,7 @@ namespace ChillCofee
             {
                 Form1 loginForm = new Form1();
                 loginForm.Show();
+
                 this.Hide();
             }
         }
