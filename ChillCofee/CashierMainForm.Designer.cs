@@ -40,14 +40,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.adminDashboardForm1 = new ChillCofee.AdminDashboardForm();
-            this.adminAddProducts1 = new ChillCofee.AdminAddProducts();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.cashierOrderForm1 = new ChillCofee.CashierOrderForm();
+            this.adminAddProducts1 = new ChillCofee.AdminAddProducts();
+            this.adminDashboardForm1 = new ChillCofee.AdminDashboardForm();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -197,31 +197,6 @@
             this.panel1.Size = new System.Drawing.Size(260, 740);
             this.panel1.TabIndex = 34;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.cashierOrderForm1);
-            this.panel2.Controls.Add(this.adminAddProducts1);
-            this.panel2.Controls.Add(this.adminDashboardForm1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(260, 51);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1240, 740);
-            this.panel2.TabIndex = 35;
-            // 
-            // adminDashboardForm1
-            // 
-            this.adminDashboardForm1.Location = new System.Drawing.Point(0, -2);
-            this.adminDashboardForm1.Name = "adminDashboardForm1";
-            this.adminDashboardForm1.Size = new System.Drawing.Size(1240, 739);
-            this.adminDashboardForm1.TabIndex = 0;
-            // 
-            // adminAddProducts1
-            // 
-            this.adminAddProducts1.Location = new System.Drawing.Point(0, 0);
-            this.adminAddProducts1.Name = "adminAddProducts1";
-            this.adminAddProducts1.Size = new System.Drawing.Size(1240, 739);
-            this.adminAddProducts1.TabIndex = 1;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -233,12 +208,37 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.cashierOrderForm1);
+            this.panel2.Controls.Add(this.adminAddProducts1);
+            this.panel2.Controls.Add(this.adminDashboardForm1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(260, 51);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1240, 740);
+            this.panel2.TabIndex = 35;
+            // 
             // cashierOrderForm1
             // 
             this.cashierOrderForm1.Location = new System.Drawing.Point(0, 1);
             this.cashierOrderForm1.Name = "cashierOrderForm1";
             this.cashierOrderForm1.Size = new System.Drawing.Size(1240, 739);
             this.cashierOrderForm1.TabIndex = 2;
+            // 
+            // adminAddProducts1
+            // 
+            this.adminAddProducts1.Location = new System.Drawing.Point(0, 0);
+            this.adminAddProducts1.Name = "adminAddProducts1";
+            this.adminAddProducts1.Size = new System.Drawing.Size(1240, 739);
+            this.adminAddProducts1.TabIndex = 1;
+            // 
+            // adminDashboardForm1
+            // 
+            this.adminDashboardForm1.Location = new System.Drawing.Point(0, -2);
+            this.adminDashboardForm1.Name = "adminDashboardForm1";
+            this.adminDashboardForm1.Size = new System.Drawing.Size(1240, 739);
+            this.adminDashboardForm1.TabIndex = 0;
             // 
             // CashierMainForm
             // 
@@ -257,8 +257,8 @@
             this.Text = "CashierMainForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
