@@ -17,3 +17,13 @@
 SELECT * FROM products;
 
 SELECT * FROM products;
+
+CREATE TABLE orders
+(
+	id INT PRIMARY KEY IDENTITY (1,1),
+	prod_id VARCHAR(MAX) NULL,
+	prod_name VARCHAR(MAX) NULL,
+	prod_type VARCHAR(MAX) NULL,
+	prod_price FLOAT NULL,
+	prod_date DATE NULL,
+);

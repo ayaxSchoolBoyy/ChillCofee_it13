@@ -30,6 +30,7 @@ namespace ChillCofee
 
             dataGridView1.DataSource = listData;
 
+
         }
         public bool emptyFields()
         {
@@ -58,7 +59,7 @@ namespace ChillCofee
                     {
                         connect.Open();
 
-                        // CHECK USERNAME IF EXISTING ALREADY
+                       
                         string selectUsern = "SELECT * FROM users WHERE username = @usern";
 
                         using (SqlCommand checkUsern = new SqlCommand(selectUsern, connect))
@@ -177,7 +178,7 @@ namespace ChillCofee
 
         private void adminAddUsers_updateBtn_Click(object sender, EventArgs e)
         {
-             if (emptyFields())
+            if (emptyFields())
             {
                 MessageBox.Show("All fields are required to be filled.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -193,6 +194,8 @@ namespace ChillCofee
                         {
                             connect.Open();
 
+                            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
                             string updateData = "UPDATE users SET username = @usern, password = @pass, role = @role, status = @status, profile_image = @imagePath WHERE id = @id";
 
                             using (SqlCommand cmd = new SqlCommand(updateData, connect))
@@ -203,9 +206,23 @@ namespace ChillCofee
                                 cmd.Parameters.AddWithValue("@status", adminAddUsers_status.Text.Trim());
                                 cmd.Parameters.AddWithValue("@id", id);
 
+                                string relativePath = Path.Combine("User_Directory", adminAddUsers_username.Text.Trim() + ".jpg");
+                                string path = Path.Combine(baseDirectory, relativePath);
+
+                                string directoryPath = Path.GetDirectoryName(path);
+
+                                if (!Directory.Exists(directoryPath))
+                                {
+                                    Directory.CreateDirectory(directoryPath);
+                                }
+
+                                File.Copy(adminAddUsers_imageView.ImageLocation, path, true);
+
+                                cmd.Parameters.AddWithValue("@imagePath", path);
 
                                 cmd.ExecuteNonQuery();
                                 clearFields();
+
                                 MessageBox.Show("Updated successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 displayAddUsersData();
@@ -223,7 +240,7 @@ namespace ChillCofee
                 }
             }
         }
-        
+
         public void clearFields()
         {
             adminAddUsers_username.Text = "";
