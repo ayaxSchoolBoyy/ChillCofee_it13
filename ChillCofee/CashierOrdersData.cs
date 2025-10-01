@@ -12,7 +12,7 @@ namespace ChillCofee
     {
         SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30");
 
-        public int ID { set; get; }
+        //public int ID { set; get; }
         public int CID { set; get; }
         public string ProdID { set; get; }
         public string ProdName { set; get; }
@@ -66,7 +66,7 @@ namespace ChillCofee
                         {
                             CashierOrdersData coData = new CashierOrdersData();
 
-                            coData.ID = (int)reader["id"];
+                            //coData.ID = (int)reader["id"];
                             coData.CID = (int)reader["customer_id"];
                             coData.ProdID = reader["prod_id"].ToString();
                             coData.ProdName = reader["prod_name"].ToString();

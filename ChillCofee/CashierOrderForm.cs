@@ -30,6 +30,21 @@ namespace ChillCofee
 
             displayTotalPrice();
         }
+
+        public void refreshData()
+        {
+            if (InvokeRequired)
+            {
+                Invoke((MethodInvoker)refreshData);
+                return;
+            }
+            displayAvailableProds();
+
+            displayAllOrders();
+
+            displayTotalPrice();
+        }
+
         public void displayAvailableProds()
         {
             CashierOrderFormProdData allProds = new CashierOrderFormProdData();
@@ -37,6 +52,8 @@ namespace ChillCofee
             List<CashierOrderFormProdData> listData = allProds.availableProductsData();
 
             cashierOrderForm_menuTable.DataSource = listData;
+            cashierOrderForm_menuTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
 
         private void cashierOrderForm_type_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,6 +148,8 @@ namespace ChillCofee
             List<CashierOrdersData> listData = allOrders.ordersListData();
 
             cashierOrderForm_orderTable.DataSource = listData;
+            cashierOrderForm_orderTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
 
         private float totalPrice;
@@ -461,6 +480,67 @@ namespace ChillCofee
             string labelText = today.ToString();
             y = e.MarginBounds.Bottom - labelMargin - labelFont.GetHeight(e.Graphics);
             e.Graphics.DrawString(labelText, labelFont, Brushes.Black, e.MarginBounds.Right - e.Graphics.MeasureString("------------------------------", labelFont).Width, y);
+        }
+
+        private void cashierOrderForm_removeBtn_Click(object sender, EventArgs e)
+        {
+            if (getOrderID == 0)
+            {
+                MessageBox.Show("Select item first", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (MessageBox.Show("Are you sure you want to Remove the Order ID: " + getOrderID + "?", "Confirmation Message"
+                , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (connect.State == ConnectionState.Closed)
+                    {
+                        try
+                        {
+                            connect.Open();
+
+                            string deleteData = "DELETE FROM orders WHERE id = @id";
+
+                            using (SqlCommand cmd = new SqlCommand(deleteData, connect))
+                            {
+                                cmd.Parameters.AddWithValue("@id", getOrderID);
+
+                                cmd.ExecuteNonQuery();
+
+                                MessageBox.Show("Removed successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Connection failed: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            connect.Close();
+                        }
+                    }
+                }
+            }
+
+            displayAllOrders();
+            displayTotalPrice();
+        }
+        private int getOrderID = 0;
+
+        public void clearFields()
+        {
+            cashierOrderForm_type.SelectedIndex = -1;
+            cashierOrderForm_productID.Items.Clear();
+            cashierOrderForm_prodName.Text = "";
+            cashierOrderForm_price.Text = "";
+            cashierOrderForm_quantity.Value = 0;
+        }
+        private void cashierOrderForm_clearBtn_Click(object sender, EventArgs e)
+        {
+            displayAllOrders();
+            displayTotalPrice();
+
+            clearFields();
         }
     }
 }

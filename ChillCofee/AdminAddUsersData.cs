@@ -18,7 +18,7 @@ namespace ChillCofee
         public string Password { set; get; }
         public string Role { set; get; }
         public string Status { set; get; }
-        public string Image { set; get; }
+        //public string Image { set; get; }
         public string DateRegistered { set; get; }
 
         public List<AdminAddUsersData> usersListData()
@@ -46,7 +46,7 @@ namespace ChillCofee
                             userData.Password = reader["password"].ToString();
                             userData.Role = reader["role"].ToString();
                             userData.Status = reader["status"].ToString();
-                            userData.Image = reader["profile_image"].ToString();
+                            //userData.Image = reader["profile_image"].ToString();
                             userData.DateRegistered = reader["date_rag"].ToString();
 
                             listData.Add(userData);

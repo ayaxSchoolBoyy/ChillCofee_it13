@@ -48,6 +48,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.adminAddUsers_imageView)).BeginInit();
@@ -291,6 +292,10 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Employees";
             // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
             // AdminAddUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,5 +336,6 @@
         private System.Windows.Forms.Button adminAddUsers_importBtn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox adminAddUsers_imageView;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }

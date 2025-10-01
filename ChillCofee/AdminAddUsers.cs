@@ -23,12 +23,25 @@ namespace ChillCofee
 
             displayAddUsersData();
         }
+
+        public void refreshData()
+        {
+            if (InvokeRequired)
+            {
+                Invoke((MethodInvoker)refreshData);
+                return;
+            }
+            displayAddUsersData();
+        }
+
         public void displayAddUsersData()
         {
             AdminAddUsersData usersData = new AdminAddUsersData();
             List<AdminAddUsersData> listData = usersData.usersListData();
 
             dataGridView1.DataSource = listData;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
 
 
         }

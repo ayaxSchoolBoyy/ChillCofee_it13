@@ -24,6 +24,16 @@ namespace ChillCofee
             displayData();
         }
 
+        public void refreshData()
+        {
+            if (InvokeRequired)
+            {
+                Invoke((MethodInvoker)refreshData);
+                return;
+            }
+            displayData();
+        }
+
         public bool emptyFields()
         {
             if (adminAddProducts_id.Text == "" || adminAddProducts_name.Text == ""
@@ -44,6 +54,8 @@ namespace ChillCofee
             List<AdminAddProductsData> listData = prodData.productsListData();
 
             dataGridView1.DataSource = listData;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
 
 
