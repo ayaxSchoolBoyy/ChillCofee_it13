@@ -200,7 +200,7 @@ namespace ChillCofee
             IDGenerator();
 
             if (cashierOrderForm_type.SelectedIndex == -1 || cashierOrderForm_productID.SelectedIndex == -1
-                || cashierOrderForm_prodName.Text == "" || cashierOrderForm_quantity.Value == 0
+                || cashierOrderForm_prodName.Text == "" || cashierOrderForm_quantity.Text == "0"
                 || cashierOrderForm_price.Text == "")
             {
                 MessageBox.Show("Please select the product first", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -244,9 +244,10 @@ namespace ChillCofee
                             cmd.Parameters.AddWithValue("@prodName", cashierOrderForm_prodName.Text);
                             cmd.Parameters.AddWithValue("@prodType", cashierOrderForm_type.Text.Trim());
 
-                            float totalPrice = (getPrice * (int)cashierOrderForm_quantity.Value);
+                            int qty = int.Parse(cashierOrderForm_quantity.Text);
+                            float totalPrice = getPrice * qty;
 
-                            cmd.Parameters.AddWithValue("@qty", cashierOrderForm_quantity.Value);
+                            cmd.Parameters.AddWithValue("@qty", cashierOrderForm_quantity.Text);
                             cmd.Parameters.AddWithValue("@prodPrice", totalPrice);
                             cmd.Parameters.AddWithValue("@orderDate", today);
 
@@ -472,8 +473,8 @@ namespace ChillCofee
             float labelX = e.MarginBounds.Right - e.Graphics.MeasureString("------------------------------", labelFont).Width;
 
             y = e.MarginBounds.Bottom - labelMargin - labelFont.GetHeight(e.Graphics);
-            e.Graphics.DrawString("Total Price: \t$" + totalPrice + "\nAmount: \t$"
-                + cashierOrderForm_amount.Text + "\n\t\t------------\nChange: \t$" + cashierOrderForm_change.Text, labelFont, Brushes.Black, labelX, y);
+            e.Graphics.DrawString("Total Price: \t₱" + totalPrice + "\nAmount: \t₱"
+                + cashierOrderForm_amount.Text + "\n\t\t------------\nChange: \t₱" + cashierOrderForm_change.Text, labelFont, Brushes.Black, labelX, y);
 
             labelMargin = (int)Math.Min(rSpace, -40);
 
@@ -527,20 +528,46 @@ namespace ChillCofee
         }
         private int getOrderID = 0;
 
+        
+        
+
         public void clearFields()
         {
             cashierOrderForm_type.SelectedIndex = -1;
             cashierOrderForm_productID.Items.Clear();
             cashierOrderForm_prodName.Text = "";
             cashierOrderForm_price.Text = "";
-            cashierOrderForm_quantity.Value = 0;
+            cashierOrderForm_quantity.Text = "0";
         }
+
+        
         private void cashierOrderForm_clearBtn_Click(object sender, EventArgs e)
         {
-            displayAllOrders();
-            displayTotalPrice();
+            // Just clear the DataGridView rows
+            cashierOrderForm_orderTable.DataSource = null;
+            cashierOrderForm_orderTable.Rows.Clear();
 
+            // Reset the total
+            cashierOrderForm_orderPrice.Text = "0.00";
+            cashierOrderForm_change.Text = "";
+            cashierOrderForm_amount.Text = "";
+
+            // Clear product selection fields
             clearFields();
+        }
+        private int quantity = 0;
+
+        private void add_quanti_Click(object sender, EventArgs e)
+        {
+            quantity++;
+            cashierOrderForm_quantity.Text = quantity.ToString();
+        }
+
+        private void minus_quanti_Click(object sender, EventArgs e)
+        {
+            if (quantity > 0)
+                quantity--;
+                cashierOrderForm_quantity.Text = quantity.ToString();
         }
     }
 }

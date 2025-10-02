@@ -85,7 +85,7 @@
             this.dashboard_TIn.AutoSize = true;
             this.dashboard_TIn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dashboard_TIn.ForeColor = System.Drawing.Color.White;
-            this.dashboard_TIn.Location = new System.Drawing.Point(209, 127);
+            this.dashboard_TIn.Location = new System.Drawing.Point(188, 127);
             this.dashboard_TIn.Name = "dashboard_TIn";
             this.dashboard_TIn.Size = new System.Drawing.Size(54, 24);
             this.dashboard_TIn.TabIndex = 11;
@@ -127,7 +127,7 @@
             this.dashboard_TI.AutoSize = true;
             this.dashboard_TI.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dashboard_TI.ForeColor = System.Drawing.Color.White;
-            this.dashboard_TI.Location = new System.Drawing.Point(210, 127);
+            this.dashboard_TI.Location = new System.Drawing.Point(189, 127);
             this.dashboard_TI.Name = "dashboard_TI";
             this.dashboard_TI.Size = new System.Drawing.Size(54, 24);
             this.dashboard_TI.TabIndex = 8;

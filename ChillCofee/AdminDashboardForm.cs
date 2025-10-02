@@ -137,7 +137,7 @@ namespace ChillCofee
                             if (value != DBNull.Value)
                             {
                                 float count = Convert.ToSingle(reader[0]);
-                                dashboard_TI.Text = "$" + count.ToString("0.00");
+                                dashboard_TI.Text = "₱" + count.ToString("0.00");
                             }
                         }
 
@@ -173,7 +173,7 @@ namespace ChillCofee
                         if (reader.Read())
                         {
                             int count = Convert.ToInt32(reader[0]);
-                            dashboard_TIn.Text = "$" + count.ToString("0.00");
+                            dashboard_TIn.Text = "₱" + count.ToString("0.00");
                         }
 
                         reader.Close();
