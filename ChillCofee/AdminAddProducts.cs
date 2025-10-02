@@ -92,22 +92,15 @@ namespace ChillCofee
                             else
                             {
                                 string insertData = "INSERT INTO products (prod_id, prod_name, prod_type, " +
-                                    "prod_stock, prod_price, prod_status, prod_image, date_insert) VALUES(@prodID, @prodName" +
-                                    ", @prodType, @prodStock, @prodPrice, @prodStatus, @prodImage, @dateInsert)";
+                                    "prod_stock, prod_price, prod_status, date_insert) VALUES(@prodID, @prodName" +
+                                     ", @prodType, @prodStock, @prodPrice, @prodStatus, @dateInsert)";
+
 
                                 DateTime today = DateTime.Today;
 
-                                string path = Path.Combine(@"C:\Users\User\source\repos\ayaxSchoolBoyy\ChillCofee_it13\ChillCofee\Resources\Product_Directory\"
-                                    + adminAddProducts_id.Text.Trim() + ".jpg");
+                                
 
-                                string directoryPath = Path.GetDirectoryName(path);
-
-                                if (!Directory.Exists(directoryPath))
-                                {
-                                    Directory.CreateDirectory(directoryPath);
-                                }
-
-                                File.Copy(adminAddProducts_imageView.ImageLocation, path, true);
+                                
 
                                 using (SqlCommand cmd = new SqlCommand(insertData, connect))
                                 {
@@ -117,7 +110,7 @@ namespace ChillCofee
                                     cmd.Parameters.AddWithValue("@prodStock", adminAddProducts_stock.Text.Trim());
                                     cmd.Parameters.AddWithValue("@prodPrice", adminAddProducts_price.Text.Trim());
                                     cmd.Parameters.AddWithValue("@prodStatus", adminAddProducts_status.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@prodImage", path);
+
                                     cmd.Parameters.AddWithValue("@dateInsert", today);
 
                                     cmd.ExecuteNonQuery();
@@ -145,23 +138,7 @@ namespace ChillCofee
         }
         private void adminAddUsers_importBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "Image Files (*.jpg; *.png)|*.jpg;*.png";
-                string imagePath = "";
-
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    imagePath = dialog.FileName;
-                    adminAddProducts_imageView.ImageLocation = imagePath;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         public void clearFields()
@@ -172,7 +149,7 @@ namespace ChillCofee
             adminAddProducts_stock.Text = "";
             adminAddProducts_price.Text = "";
             adminAddProducts_status.SelectedIndex = -1;
-            adminAddProducts_imageView.Image = null;
+            
 
         }
 
@@ -193,22 +170,7 @@ namespace ChillCofee
                 adminAddProducts_price.Text = row.Cells[5].Value.ToString();
                 adminAddProducts_status.Text = row.Cells[6].Value.ToString();
 
-                string imagepath = row.Cells[7].Value.ToString();
-                try
-                {
-                    if (imagepath != null)
-                    {
-                        adminAddProducts_imageView.Image = Image.FromFile(imagepath);
-                    }
-                    else
-                    {
-                        adminAddProducts_imageView.Image = null;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error Image: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                
 
             }
         }
@@ -232,9 +194,8 @@ namespace ChillCofee
                         {
                             connect.Open();
 
-                            string updateData = "UPDATE products SET prod_name = @prodName" +
-                                ", prod_type = @prodType, prod_stock = @prodStock, prod_price = @prodPrice, prod_status = @prodStatus" +
-                                ", date_update = @dateUpdate WHERE prod_id = @prodID";
+                            string updateData = "UPDATE products SET prod_name = @prodName, prod_type = @prodType, prod_stock = @prodStock, prod_price = @prodPrice, prod_status = @prodStatus, date_update = @dateUpdate WHERE prod_id = @prodID";
+
                             DateTime today = DateTime.Today;
 
                             using (SqlCommand updateD = new SqlCommand(updateData, connect))

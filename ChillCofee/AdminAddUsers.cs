@@ -48,7 +48,7 @@ namespace ChillCofee
         public bool emptyFields()
         {
             if (adminAddUsers_username.Text == "" || adminAddUsers_password.Text == ""
-                || adminAddUsers_role.Text == "" || adminAddUsers_status.Text == "" || adminAddUsers_imageView.Image == null)
+                || adminAddUsers_role.Text == "" || adminAddUsers_status.Text == "" )
             {
                 return true;
             }
@@ -89,28 +89,20 @@ namespace ChillCofee
                                 MessageBox.Show(usern + " is already taken", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
-                            {             
+                            {
 
-                                string insertData = "INSERT INTO users (username, password, profile_image, role, status, date_rag) " +
-                                    "VALUES(@usern, @pass, @image, @role, @status, @date)";
+                                string insertData = "INSERT INTO users (username, password, role, status, date_rag) " +
+                                        "VALUES(@usern, @pass, @role, @status, @date)";
+
                                 DateTime today = DateTime.Today;
 
-                                string path = Path.Combine(@"C:\Users\User\source\repos\ayaxSchoolBoyy\ChillCofee_it13\ChillCofee\Resources\User_Directory\" + adminAddUsers_username.Text.Trim() + ".jpg");
-
-                                string directoryPath = Path.GetDirectoryName(path);
-
-                                if (!Directory.Exists(directoryPath))
-                                {
-                                    Directory.CreateDirectory(directoryPath);
-                                }
-
-                                File.Copy(adminAddUsers_imageView.ImageLocation, path, true);
+                                
 
                                 using (SqlCommand cmd = new SqlCommand(insertData, connect))
                                 {
                                     cmd.Parameters.AddWithValue("@usern", adminAddUsers_username.Text.Trim());
                                     cmd.Parameters.AddWithValue("@pass", adminAddUsers_password.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@image", path);
+                                    
                                     cmd.Parameters.AddWithValue("@role", adminAddUsers_role.Text.Trim());
                                     cmd.Parameters.AddWithValue("@status", adminAddUsers_status.Text.Trim());
                                     cmd.Parameters.AddWithValue("@date", today);
@@ -139,23 +131,7 @@ namespace ChillCofee
  
         private void adminAddUsers_importBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "Image Files (*.jpg; *.png|*.jpg;*.png)";
-                string imagePath = "";
-
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    imagePath = dialog.FileName;
-                    adminAddUsers_imageView.ImageLocation = imagePath;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }   
+            
         }
 
         private int id = 0;
@@ -169,23 +145,7 @@ namespace ChillCofee
             adminAddUsers_role.Text = row.Cells[3].Value.ToString();
             adminAddUsers_status.Text = row.Cells[4].Value.ToString();
 
-            string imagePath = row.Cells[5].Value.ToString();
-
-            try
-            {
-                if (imagePath != null)
-                {
-                    adminAddUsers_imageView.Image = Image.FromFile(imagePath);
-                }
-                else
-                {
-                    adminAddUsers_imageView.Image = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No Image :3", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
 
         }
 
@@ -207,9 +167,10 @@ namespace ChillCofee
                         {
                             connect.Open();
 
-                            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                            
 
-                            string updateData = "UPDATE users SET username = @usern, password = @pass, role = @role, status = @status, profile_image = @imagePath WHERE id = @id";
+                            string updateData = "UPDATE users SET username = @usern, password = @pass, role = @role, status = @status WHERE id = @id";
+
 
                             using (SqlCommand cmd = new SqlCommand(updateData, connect))
                             {
@@ -219,19 +180,7 @@ namespace ChillCofee
                                 cmd.Parameters.AddWithValue("@status", adminAddUsers_status.Text.Trim());
                                 cmd.Parameters.AddWithValue("@id", id);
 
-                                string relativePath = Path.Combine("User_Directory", adminAddUsers_username.Text.Trim() + ".jpg");
-                                string path = Path.Combine(baseDirectory, relativePath);
-
-                                string directoryPath = Path.GetDirectoryName(path);
-
-                                if (!Directory.Exists(directoryPath))
-                                {
-                                    Directory.CreateDirectory(directoryPath);
-                                }
-
-                                File.Copy(adminAddUsers_imageView.ImageLocation, path, true);
-
-                                cmd.Parameters.AddWithValue("@imagePath", path);
+                                
 
                                 cmd.ExecuteNonQuery();
                                 clearFields();
@@ -260,7 +209,7 @@ namespace ChillCofee
             adminAddUsers_password.Text = "";
             adminAddUsers_role.SelectedIndex = -1;
             adminAddUsers_status.SelectedIndex = -1;
-            adminAddUsers_imageView.Image = null;
+            
         }
 
         private void adminAddUsers_clearBtn_Click(object sender, EventArgs e)
