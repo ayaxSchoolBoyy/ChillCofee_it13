@@ -143,12 +143,40 @@ namespace ChillCofee
 
         public void displayAllOrders()
         {
-            CashierOrdersData allOrders = new CashierOrdersData();
+            cashierOrderForm_orderList.Clear();
+            cashierOrderForm_orderList.Font = new Font("Consolas", 10);
 
-            List<CashierOrdersData> listData = allOrders.ordersListData();
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30"))
+                {
+                    connect.Open();
+                    string query = "SELECT prod_name, qty, prod_price FROM orders WHERE customer_id = @custId";
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@custId", idGen);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            cashierOrderForm_orderList.AppendText(String.Format("\n"));
+                            cashierOrderForm_orderList.AppendText(String.Format("\t{0,-20}{1,-10}{2,-10}\n", "Product", "Qty", "Price"));
+                            cashierOrderForm_orderList.AppendText(new string('-', 46) + "\n");
 
-            cashierOrderForm_orderTable.DataSource = listData;
-            cashierOrderForm_orderTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                            while (reader.Read())
+                            {
+                                string prodName = reader["prod_name"].ToString();
+                                string qty = reader["qty"].ToString();
+                                string price = reader["prod_price"].ToString();
+
+                                cashierOrderForm_orderList.AppendText(String.Format("\t{0,-20}{1,-10}{2,-10}\n", prodName, qty, "₱" + price));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -393,8 +421,6 @@ namespace ChillCofee
         private void cashierOrderForm_receiptBtn_Click(object sender, EventArgs e)
         {
             printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
-            printDocument1.BeginPrint += new PrintEventHandler(printDocument1_BeginPrint);
-
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
         }
@@ -408,128 +434,68 @@ namespace ChillCofee
         {
             displayTotalPrice();
 
-            float y = 0;
-            int count = 0;
-            int colWidth = 120;
-            int headerMargin = 10;
-            int tableMargin = 20;
+            string header = "Chill Coffee Receipt\n-----------------------------\n";
+            e.Graphics.DrawString(header, new Font("Arial", 14, FontStyle.Bold), Brushes.Black, 100, 100);
 
-            Font font = new Font("Arial", 12);
-            Font bold = new Font("Arial", 12, FontStyle.Bold);
-            Font headerFont = new Font("Arial", 16, FontStyle.Bold);
-            Font labelFont = new Font("Arial", 14, FontStyle.Bold);
+            // Print orders from RichTextBox
+            string orderDetails = cashierOrderForm_orderList.Text;
+            e.Graphics.DrawString(orderDetails, new Font("Arial", 12), Brushes.Black, new RectangleF(100, 150, e.MarginBounds.Width, e.MarginBounds.Height));
 
-            float margin = e.MarginBounds.Top;
-
-            StringFormat alignCenter = new StringFormat();
-            alignCenter.Alignment = StringAlignment.Center;
-            alignCenter.LineAlignment = StringAlignment.Center;
-
-            string headerText = "Chill Coffee";
-            y = (margin + count * headerFont.GetHeight(e.Graphics) + headerMargin);
-            e.Graphics.DrawString(headerText, headerFont, Brushes.Black, e.MarginBounds.Left
-                + (cashierOrderForm_orderTable.Columns.Count / 2) * colWidth, y, alignCenter);
-
-            count++;
-            y += tableMargin;
-
-            string[] header = { "CID", "ProdID", "ProdName", "ProdType", "Qty", "Price" };
-
-            for (int i = 0; i < header.Length; i++)
-            {
-                y = margin + count * bold.GetHeight(e.Graphics) + tableMargin;
-                e.Graphics.DrawString(header[i], bold, Brushes.Black, e.MarginBounds.Left + i * colWidth, y, alignCenter);
-            }
-            count++;
-
-            float rSpace = e.MarginBounds.Bottom - y;
-
-            while (rowIndex < cashierOrderForm_orderTable.Rows.Count)
-            {
-                DataGridViewRow row = cashierOrderForm_orderTable.Rows[rowIndex];
-
-                for (int i = 0; i < cashierOrderForm_orderTable.Columns.Count; i++)
-                {
-                    object cellValue = row.Cells[i].Value;
-                    string cell = (cellValue != null) ? cellValue.ToString() : string.Empty;
-
-                    y = margin + count * font.GetHeight(e.Graphics) + tableMargin;
-                    e.Graphics.DrawString(cell, font, Brushes.Black, e.MarginBounds.Left + i * colWidth, y, alignCenter);
-                }
-                count++;
-                rowIndex++;
-
-                if (y + font.GetHeight(e.Graphics) > e.MarginBounds.Bottom)
-                {
-                    e.HasMorePages = true;
-                    return;
-                }
-            }
-
-            int labelMargin = (int)Math.Min(rSpace, 200);
-
-            DateTime today = DateTime.Now;
-
-            float labelX = e.MarginBounds.Right - e.Graphics.MeasureString("------------------------------", labelFont).Width;
-
-            y = e.MarginBounds.Bottom - labelMargin - labelFont.GetHeight(e.Graphics);
-            e.Graphics.DrawString("Total Price: \t₱" + totalPrice + "\nAmount: \t₱"
-                + cashierOrderForm_amount.Text + "\n\t\t------------\nChange: \t₱" + cashierOrderForm_change.Text, labelFont, Brushes.Black, labelX, y);
-
-            labelMargin = (int)Math.Min(rSpace, -40);
-
-            string labelText = today.ToString();
-            y = e.MarginBounds.Bottom - labelMargin - labelFont.GetHeight(e.Graphics);
-            e.Graphics.DrawString(labelText, labelFont, Brushes.Black, e.MarginBounds.Right - e.Graphics.MeasureString("------------------------------", labelFont).Width, y);
+            // Print totals
+            string footer = $"\n-----------------------------\n" +
+                            $"Total: ₱{cashierOrderForm_orderPrice.Text}\n" +
+                            $"Amount: ₱{cashierOrderForm_amount.Text}\n" +
+                            $"Change: ₱{cashierOrderForm_change.Text}\n" +
+                            $"{DateTime.Now}";
+            e.Graphics.DrawString(footer, new Font("Arial", 12, FontStyle.Bold), Brushes.Black, 100, e.MarginBounds.Bottom - 100);
         }
 
         private void cashierOrderForm_removeBtn_Click(object sender, EventArgs e)
         {
-            if (getOrderID == 0)
+            if (cashierOrderForm_productID.SelectedIndex == -1)
             {
-                MessageBox.Show("Select item first", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a product to remove.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+
+            string prodID = cashierOrderForm_productID.Text.Trim();
+
+            if (MessageBox.Show("Are you sure you want to remove this item?", "Confirmation",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Are you sure you want to Remove the Order ID: " + getOrderID + "?", "Confirmation Message"
-                , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                try
                 {
-                    if (connect.State == ConnectionState.Closed)
+                    using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30"))
                     {
-                        try
+                        connect.Open();
+
+                        string deleteQuery = "DELETE FROM orders WHERE customer_id = @custId AND prod_id = @prodID";
+
+                        using (SqlCommand cmd = new SqlCommand(deleteQuery, connect))
                         {
-                            connect.Open();
-
-                            string deleteData = "DELETE FROM orders WHERE id = @id";
-
-                            using (SqlCommand cmd = new SqlCommand(deleteData, connect))
-                            {
-                                cmd.Parameters.AddWithValue("@id", getOrderID);
-
-                                cmd.ExecuteNonQuery();
-
-                                MessageBox.Show("Removed successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Connection failed: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        finally
-                        {
-                            connect.Close();
+                            cmd.Parameters.AddWithValue("@custId", idGen);
+                            cmd.Parameters.AddWithValue("@prodID", prodID);
+                            cmd.ExecuteNonQuery();
                         }
                     }
+
+                    // Refresh order list + total price
+                    displayAllOrders();
+                    displayTotalPrice();
+
+                    MessageBox.Show("Item removed successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error removing item: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
-            displayAllOrders();
-            displayTotalPrice();
         }
         private int getOrderID = 0;
 
-        
-        
+
+
 
         public void clearFields()
         {
@@ -543,9 +509,7 @@ namespace ChillCofee
         
         private void cashierOrderForm_clearBtn_Click(object sender, EventArgs e)
         {
-            // Just clear the DataGridView rows
-            cashierOrderForm_orderTable.DataSource = null;
-            cashierOrderForm_orderTable.Rows.Clear();
+            cashierOrderForm_orderList.Clear();
 
             // Reset the total
             cashierOrderForm_orderPrice.Text = "0.00";
@@ -570,4 +534,5 @@ namespace ChillCofee
                 cashierOrderForm_quantity.Text = quantity.ToString();
         }
     }
+    
 }

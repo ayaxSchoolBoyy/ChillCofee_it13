@@ -17,7 +17,7 @@ namespace ChillCofee
         public string Stock { set; get; } 
         public string Price { set; get; } 
         public string Status { set; get; } 
-        //public string Image { set; get; } 
+        public string Image { set; get; } 
         public string DateInsert { set; get; } 
         public string DateUpdate { set; get; }
 
@@ -50,7 +50,7 @@ namespace ChillCofee
                             apd.Stock = reader["prod_stock"].ToString();
                             apd.Price = reader["prod_price"].ToString();
                             apd.Status = reader["prod_status"].ToString();
-                            //apd.Image = reader["prod_image"].ToString();
+                            apd.Image = reader["prod_image"].ToString();
                             apd.DateInsert = reader["date_insert"].ToString();
                             apd.DateUpdate = reader["date_update"].ToString();
 
