@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ChillCofee
 {
@@ -40,6 +41,110 @@ namespace ChillCofee
             datagridview1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void datagridview1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void clearFilterButton_Click(object sender, EventArgs e)
+        {
+            LoadAllTransactions();
+        }
+
+        private void LoadTransactionsByDate(DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                using (MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;"))
+                {
+                    connect.Open();
+                    string query = "SELECT transaction_id, total_price, amount, `change`, date " +
+                                   "FROM customers " +
+                                   "WHERE date BETWEEN @startDate AND @endDate " +
+                                   "ORDER BY date ASC";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@startDate", startDate);
+                        cmd.Parameters.AddWithValue("@endDate", endDate);
+
+                        DataTable dt = new DataTable();
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dt);
+                            datagridview1.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading transactions: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadAllTransactions()
+        {
+            try
+            {
+                using (MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;"))
+                {
+                    connect.Open();
+                    string query = "SELECT transaction_id, total_price, amount, `change`, date FROM customers ORDER BY date ASC";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connect))
+                    {
+                        DataTable dt = new DataTable();
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dt);
+                            datagridview1.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading transactions: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adminAddProducts_addBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void filterBtn_Click(object sender, EventArgs e)
+        {
+            DateTime startDate = dateTimePicker1.Value.Date;
+            DateTime endDate = dateTimePicker2.Value.Date.AddDays(1).AddSeconds(-1); // full day range
+            LoadTransactionsByDate(startDate, endDate);
         }
     }
 }

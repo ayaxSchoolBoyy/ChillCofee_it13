@@ -1,17 +1,18 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Drawing;
+using System.Drawing;
+using System.Drawing.Printing;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
-using System.Drawing.Printing;
 
 namespace ChillCofee
 {
@@ -19,7 +20,7 @@ namespace ChillCofee
     {
         public static int getCustID;
 
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
         public CashierOrderForm()
         {
             InitializeComponent();
@@ -72,16 +73,16 @@ namespace ChillCofee
 
                 try
                 {
-                    using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30"))
+                    using (MySqlConnection connect = new MySqlConnection(@"Server=localhost;Database=chillcoffee;Uid=root;Pwd=;"))
                     {
                         connect.Open();
                         string selectData = $"SELECT * FROM products WHERE prod_type = '{selectedValue}' AND prod_status = @status AND date_delete IS NULL";
 
-                        using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                        using (MySqlCommand cmd = new MySqlCommand(selectData, connect))
                         {
                             cmd.Parameters.AddWithValue("@status", "Available");
 
-                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
                             {
                                 while (reader.Read())
                                 {
@@ -109,16 +110,16 @@ namespace ChillCofee
             {
                 try
                 {
-                    using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30"))
+                    using (MySqlConnection connect = new MySqlConnection(@"Server=localhost;Database=chillcoffee;Uid=root;Pwd=;"))
                     {
                         connect.Open();
                         string selectData = $"SELECT * FROM products WHERE prod_id = '{selectedValue}' AND prod_status = @status AND date_delete IS NULL";
 
-                        using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                        using (MySqlCommand cmd = new MySqlCommand(selectData, connect))
                         {
                             cmd.Parameters.AddWithValue("@status", "Available");
 
-                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
                             {
                                 while (reader.Read())
                                 {
@@ -148,14 +149,14 @@ namespace ChillCofee
 
             try
             {
-                using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30"))
+                using (MySqlConnection connect = new MySqlConnection(@"Server=localhost;Database=chillcoffee;Uid=root;Pwd=;"))
                 {
                     connect.Open();
-                    string query = "SELECT prod_name, qty, prod_price FROM orders WHERE customer_id = @custId";
-                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    string query = "SELECT prod_name, qty, prod_price FROM orders WHERE transaction_id = @custId";
+                    using (MySqlCommand cmd = new MySqlCommand(query, connect))
                     {
                         cmd.Parameters.AddWithValue("@custId", idGen);
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             cashierOrderForm_orderList.AppendText(String.Format("\n"));
                             cashierOrderForm_orderList.AppendText(String.Format("\t{0,-20}{1,-10}{2,-10}\n", "Product", "Qty", "Price"));
@@ -192,9 +193,9 @@ namespace ChillCofee
                     connect.Open();
 
                     // Multiply qty * price to get correct total
-                    string selectData = "SELECT SUM(qty * prod_price) FROM orders WHERE customer_id = @custId";
+                    string selectData = "SELECT SUM(qty * prod_price) FROM orders WHERE transaction_id = @custId";
 
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                    using (MySqlCommand cmd = new MySqlCommand(selectData, connect))
                     {
                         cmd.Parameters.AddWithValue("@custId", idGen);
 
@@ -243,11 +244,11 @@ namespace ChillCofee
                         float getPrice = 0;
                         string selectOrder = "SELECT * FROM products WHERE prod_id = @prodID";
 
-                        using (SqlCommand getOrder = new SqlCommand(selectOrder, connect))
+                        using (MySqlCommand getOrder = new MySqlCommand(selectOrder, connect))
                         {
                             getOrder.Parameters.AddWithValue("@prodID", cashierOrderForm_productID.Text.Trim());
 
-                            using (SqlDataReader reader = getOrder.ExecuteReader())
+                            using (MySqlDataReader reader = getOrder.ExecuteReader())
                             {
                                 if (reader.Read())
                                 {
@@ -260,14 +261,14 @@ namespace ChillCofee
                             }
                         }
 
-                        string insertOrder = "INSERT INTO orders (customer_id, prod_id, prod_name, prod_type, qty, prod_price, order_date) " +
-                            "VALUES(@customerID, @prodID, @prodName, @prodType, @qty, @prodPrice, @orderDate)";
+                        string insertOrder = "INSERT INTO orders (transaction_id, prod_id, prod_name, prod_type, qty, prod_price, order_date) " +
+                            "VALUES(@transactionID, @prodID, @prodName, @prodType, @qty, @prodPrice, @orderDate)";
 
                         DateTime today = DateTime.Today;
 
-                        using (SqlCommand cmd = new SqlCommand(insertOrder, connect))
+                        using (MySqlCommand cmd = new MySqlCommand(insertOrder, connect))
                         {
-                            cmd.Parameters.AddWithValue("@customerID", idGen);
+                            cmd.Parameters.AddWithValue("@transactionID", idGen);
                             cmd.Parameters.AddWithValue("@prodID", cashierOrderForm_productID.Text.Trim());
                             cmd.Parameters.AddWithValue("@prodName", cashierOrderForm_prodName.Text);
                             cmd.Parameters.AddWithValue("@prodType", cashierOrderForm_type.Text.Trim());
@@ -300,12 +301,12 @@ namespace ChillCofee
         private int idGen = 0;
         public void IDGenerator() 
         {
-            using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30"))
+            using (MySqlConnection connect = new MySqlConnection(@"Server=localhost;Database=chillcoffee;Uid=root;Pwd=;"))
             {
                 connect.Open();
-                string selectID = "SELECT MAX(customer_id) FROM customers";
+                string selectID = "SELECT MAX(transaction_id) FROM customers";
 
-                using (SqlCommand cmd = new SqlCommand(selectID, connect))
+                using (MySqlCommand cmd = new MySqlCommand(selectID, connect))
                 {
                     object result = cmd.ExecuteScalar();
 
@@ -333,37 +334,22 @@ namespace ChillCofee
 
         private void cashierOrderForm_amount_TextChanged(object sender, EventArgs e)
         {
+            if (float.TryParse(cashierOrderForm_amount.Text, out float getAmount))
+            {
+                displayTotalPrice(); // make sure totalPrice is fresh
+                float getChange = getAmount - totalPrice;
 
+                cashierOrderForm_change.Text = (getChange >= 0) ? getChange.ToString("0.00") : "";
+            }
+            else
+            {
+                cashierOrderForm_change.Text = "";
+            }
         }
 
         private void cashierOrderForm_amount_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                try
-                {
-                    float getAmount = Convert.ToSingle(cashierOrderForm_amount.Text);
-
-                    float getChange = (getAmount - totalPrice);
-
-                    if (getChange <= -1)
-                    {
-                        cashierOrderForm_amount.Text = "";
-                        cashierOrderForm_change.Text = "";
-                    }
-                    else
-                    {
-                        cashierOrderForm_change.Text = getChange.ToString();
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Invalid", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    cashierOrderForm_amount.Text = "";
-                    cashierOrderForm_change.Text = "";
-                }
-            }
+            
         }
 
         private void cashierOrderForm_payBtn_Click(object sender, EventArgs e)
@@ -386,12 +372,12 @@ namespace ChillCofee
                             IDGenerator();
 
 
-                            string insertData = "INSERT INTO customers (customer_id, total_price, amount, change, date) " +
+                            string insertData = "INSERT INTO customers (transaction_id, total_price, amount, `change`, date) " +
                                 "VALUES(@custID, @totalprice, @amount, @change, @date)";
 
                             DateTime today = DateTime.Today;
 
-                            using (SqlCommand cmd = new SqlCommand(insertData, connect))
+                            using (MySqlCommand cmd = new MySqlCommand(insertData, connect))
                             {
                                 cmd.Parameters.AddWithValue("@custID", idGen);
                                 cmd.Parameters.AddWithValue("@totalprice", totalPrice);
@@ -432,8 +418,6 @@ namespace ChillCofee
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
-            displayTotalPrice();
-
             string header = "Chill Coffee Receipt\n-----------------------------\n";
             e.Graphics.DrawString(header, new Font("Arial", 14, FontStyle.Bold), Brushes.Black, 100, 100);
 
@@ -441,9 +425,9 @@ namespace ChillCofee
             string orderDetails = cashierOrderForm_orderList.Text;
             e.Graphics.DrawString(orderDetails, new Font("Arial", 12), Brushes.Black, new RectangleF(100, 150, e.MarginBounds.Width, e.MarginBounds.Height));
 
-            // Print totals
+            // ✅ Use totalPrice field (already computed) instead of re-querying DB
             string footer = $"\n-----------------------------\n" +
-                            $"Total: ₱{cashierOrderForm_orderPrice.Text}\n" +
+                            $"Total: ₱{totalPrice.ToString("0.00")}\n" +
                             $"Amount: ₱{cashierOrderForm_amount.Text}\n" +
                             $"Change: ₱{cashierOrderForm_change.Text}\n" +
                             $"{DateTime.Now}";
@@ -454,40 +438,83 @@ namespace ChillCofee
         {
             if (cashierOrderForm_productID.SelectedIndex == -1)
             {
-                MessageBox.Show("Please select a product to remove.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a product to reduce quantity.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             string prodID = cashierOrderForm_productID.Text.Trim();
 
-            if (MessageBox.Show("Are you sure you want to remove this item?", "Confirmation",
+            if (MessageBox.Show("Reduce quantity of this item?", "Confirmation",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
                 {
-                    using (SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30"))
+                    using (MySqlConnection connect = new MySqlConnection(@"Server=localhost;Database=chillcoffee;Uid=root;Pwd=;"))
                     {
                         connect.Open();
 
-                        string deleteQuery = "DELETE FROM orders WHERE customer_id = @custId AND prod_id = @prodID";
+                        // First check current quantity
+                        string checkQtyQuery = "SELECT qty, prod_price FROM orders WHERE transaction_id = @custId AND prod_id = @prodID LIMIT 1";
+                        int currentQty = 0;
+                        float currentPrice = 0;
 
-                        using (SqlCommand cmd = new SqlCommand(deleteQuery, connect))
+                        using (MySqlCommand cmd = new MySqlCommand(checkQtyQuery, connect))
                         {
                             cmd.Parameters.AddWithValue("@custId", idGen);
                             cmd.Parameters.AddWithValue("@prodID", prodID);
-                            cmd.ExecuteNonQuery();
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    currentQty = Convert.ToInt32(reader["qty"]);
+                                    currentPrice = Convert.ToSingle(reader["prod_price"]);
+                                }
+                            }
+                        }
+
+                        if (currentQty > 1)
+                        {
+                            // Get unit price by dividing total price by qty
+                            float unitPrice = currentPrice / currentQty;
+
+                            // Reduce quantity and update price
+                            string updateQuery = "UPDATE orders SET qty = qty - 1, prod_price = prod_price - @unitPrice " +
+                                                 "WHERE transaction_id = @custId AND prod_id = @prodID LIMIT 1";
+
+                            using (MySqlCommand updateCmd = new MySqlCommand(updateQuery, connect))
+                            {
+                                updateCmd.Parameters.AddWithValue("@custId", idGen);
+                                updateCmd.Parameters.AddWithValue("@prodID", prodID);
+                                updateCmd.Parameters.AddWithValue("@unitPrice", unitPrice);
+
+                                updateCmd.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            // If qty = 1, delete the row completely
+                            string deleteQuery = "DELETE FROM orders WHERE transaction_id = @custId AND prod_id = @prodID LIMIT 1";
+
+                            using (MySqlCommand deleteCmd = new MySqlCommand(deleteQuery, connect))
+                            {
+                                deleteCmd.Parameters.AddWithValue("@custId", idGen);
+                                deleteCmd.Parameters.AddWithValue("@prodID", prodID);
+
+                                deleteCmd.ExecuteNonQuery();
+                            }
                         }
                     }
 
-                    // Refresh order list + total price
+                    // Refresh UI
                     displayAllOrders();
                     displayTotalPrice();
 
-                    MessageBox.Show("Item removed successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Quantity updated successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error removing item: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error updating order: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -509,15 +536,36 @@ namespace ChillCofee
         
         private void cashierOrderForm_clearBtn_Click(object sender, EventArgs e)
         {
-            cashierOrderForm_orderList.Clear();
+            try
+            {
+                using (MySqlConnection connect = new MySqlConnection(@"Server=localhost;Database=chillcoffee;Uid=root;Pwd=;"))
+                {
+                    connect.Open();
 
-            // Reset the total
-            cashierOrderForm_orderPrice.Text = "0.00";
-            cashierOrderForm_change.Text = "";
-            cashierOrderForm_amount.Text = "";
+                    // Delete all orders for the current customer
+                    string deleteOrders = "DELETE FROM orders WHERE transaction_id = @custId";
 
-            // Clear product selection fields
-            clearFields();
+                    using (MySqlCommand cmd = new MySqlCommand(deleteOrders, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@custId", idGen);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                // Clear UI fields
+                cashierOrderForm_orderList.Clear();
+                cashierOrderForm_orderPrice.Text = "0.00";
+                cashierOrderForm_change.Text = "";
+                cashierOrderForm_amount.Text = "";
+                quantity = 0;
+                clearFields();
+
+                MessageBox.Show("Orders cleared successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error clearing orders: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private int quantity = 0;
 
@@ -532,6 +580,21 @@ namespace ChillCofee
             if (quantity > 0)
                 quantity--;
                 cashierOrderForm_quantity.Text = quantity.ToString();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public void CashierOrderForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
     

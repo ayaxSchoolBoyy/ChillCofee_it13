@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -16,7 +16,7 @@ namespace ChillCofee
 {
     public partial class AdminAddProducts : UserControl
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
         public AdminAddProducts()
         {
             InitializeComponent();
@@ -76,11 +76,11 @@ namespace ChillCofee
                         // CHECKING IF THE PRODUCT ID IS EXISTING ALREADY
                         string selectProdID = "SELECT * FROM products WHERE prod_id = @prodID";
 
-                        using (SqlCommand selectPID = new SqlCommand(selectProdID, connect))
+                        using (MySqlCommand selectPID = new MySqlCommand(selectProdID, connect))
                         {
                             selectPID.Parameters.AddWithValue("@prodID", adminAddProducts_id.Text.Trim());
 
-                            SqlDataAdapter adapter = new SqlDataAdapter(selectPID);
+                            MySqlDataAdapter adapter = new MySqlDataAdapter(selectPID);
                             DataTable table = new DataTable();
                             adapter.Fill(table);
 
@@ -102,7 +102,7 @@ namespace ChillCofee
 
                                 
 
-                                using (SqlCommand cmd = new SqlCommand(insertData, connect))
+                                using (MySqlCommand cmd = new MySqlCommand(insertData, connect))
                                 {
                                     cmd.Parameters.AddWithValue("@prodID", adminAddProducts_id.Text.Trim());
                                     cmd.Parameters.AddWithValue("@prodName", adminAddProducts_name.Text.Trim());
@@ -198,7 +198,7 @@ namespace ChillCofee
 
                             DateTime today = DateTime.Today;
 
-                            using (SqlCommand updateD = new SqlCommand(updateData, connect))
+                            using (MySqlCommand updateD = new MySqlCommand(updateData, connect))
                             {
                                 updateD.Parameters.AddWithValue("@prodName", adminAddProducts_name.Text.Trim());
                                 updateD.Parameters.AddWithValue("@prodType", adminAddProducts_type.Text.Trim());
@@ -251,7 +251,7 @@ namespace ChillCofee
                             string updateData = "UPDATE products SET date_delete = @dateDelete WHERE prod_id = @prodID";
                             DateTime today = DateTime.Today;
 
-                            using (SqlCommand updateD = new SqlCommand(updateData, connect))
+                            using (MySqlCommand updateD = new MySqlCommand(updateData, connect))
                             {
 
                                 updateD.Parameters.AddWithValue("@dateDelete", today);

@@ -35,6 +35,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cashierOrderForm_menuTable = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.add_quanti = new System.Windows.Forms.Button();
+            this.cashierOrderForm_quantity = new System.Windows.Forms.TextBox();
+            this.minus_quanti = new System.Windows.Forms.Button();
             this.cashierOrderForm_clearBtn = new System.Windows.Forms.Button();
             this.cashierOrderForm_removeBtn = new System.Windows.Forms.Button();
             this.cashierOrderForm_addBtn = new System.Windows.Forms.Button();
@@ -48,6 +51,7 @@
             this.cashierOrderForm_type = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cashierOrderForm_orderList = new System.Windows.Forms.RichTextBox();
             this.cashierOrderForm_receiptBtn = new System.Windows.Forms.Button();
             this.cashierOrderForm_payBtn = new System.Windows.Forms.Button();
             this.cashierOrderForm_change = new System.Windows.Forms.Label();
@@ -59,10 +63,6 @@
             this.cashierOrderForm_orderTable = new System.Windows.Forms.DataGridView();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.minus_quanti = new System.Windows.Forms.Button();
-            this.cashierOrderForm_quantity = new System.Windows.Forms.TextBox();
-            this.add_quanti = new System.Windows.Forms.Button();
-            this.cashierOrderForm_orderList = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cashierOrderForm_menuTable)).BeginInit();
             this.panel2.SuspendLayout();
@@ -135,6 +135,46 @@
             this.panel2.Size = new System.Drawing.Size(802, 331);
             this.panel2.TabIndex = 1;
             // 
+            // add_quanti
+            // 
+            this.add_quanti.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.add_quanti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.add_quanti.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_quanti.ForeColor = System.Drawing.Color.White;
+            this.add_quanti.Location = new System.Drawing.Point(636, 118);
+            this.add_quanti.Name = "add_quanti";
+            this.add_quanti.Size = new System.Drawing.Size(48, 37);
+            this.add_quanti.TabIndex = 28;
+            this.add_quanti.Text = "+";
+            this.add_quanti.UseVisualStyleBackColor = false;
+            this.add_quanti.Click += new System.EventHandler(this.add_quanti_Click);
+            // 
+            // cashierOrderForm_quantity
+            // 
+            this.cashierOrderForm_quantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cashierOrderForm_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashierOrderForm_quantity.Location = new System.Drawing.Point(576, 118);
+            this.cashierOrderForm_quantity.Multiline = true;
+            this.cashierOrderForm_quantity.Name = "cashierOrderForm_quantity";
+            this.cashierOrderForm_quantity.Size = new System.Drawing.Size(39, 37);
+            this.cashierOrderForm_quantity.TabIndex = 27;
+            this.cashierOrderForm_quantity.Text = "0";
+            this.cashierOrderForm_quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // minus_quanti
+            // 
+            this.minus_quanti.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.minus_quanti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minus_quanti.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minus_quanti.ForeColor = System.Drawing.Color.White;
+            this.minus_quanti.Location = new System.Drawing.Point(504, 118);
+            this.minus_quanti.Name = "minus_quanti";
+            this.minus_quanti.Size = new System.Drawing.Size(47, 37);
+            this.minus_quanti.TabIndex = 25;
+            this.minus_quanti.Text = "-";
+            this.minus_quanti.UseVisualStyleBackColor = false;
+            this.minus_quanti.Click += new System.EventHandler(this.minus_quanti_Click);
+            // 
             // cashierOrderForm_clearBtn
             // 
             this.cashierOrderForm_clearBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -200,11 +240,12 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(426, 133);
+            this.label6.Location = new System.Drawing.Point(410, 130);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 17);
             this.label6.TabIndex = 18;
             this.label6.Text = "Quantity:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // cashierOrderForm_prodName
             // 
@@ -239,7 +280,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(409, 49);
+            this.label2.Location = new System.Drawing.Point(410, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 17);
             this.label2.TabIndex = 14;
@@ -285,6 +326,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(379, 694);
             this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // cashierOrderForm_orderList
+            // 
+            this.cashierOrderForm_orderList.Location = new System.Drawing.Point(25, 47);
+            this.cashierOrderForm_orderList.Name = "cashierOrderForm_orderList";
+            this.cashierOrderForm_orderList.Size = new System.Drawing.Size(328, 304);
+            this.cashierOrderForm_orderList.TabIndex = 30;
+            this.cashierOrderForm_orderList.Text = "";
             // 
             // cashierOrderForm_receiptBtn
             // 
@@ -412,54 +462,6 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // minus_quanti
-            // 
-            this.minus_quanti.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.minus_quanti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minus_quanti.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minus_quanti.ForeColor = System.Drawing.Color.White;
-            this.minus_quanti.Location = new System.Drawing.Point(536, 124);
-            this.minus_quanti.Name = "minus_quanti";
-            this.minus_quanti.Size = new System.Drawing.Size(47, 37);
-            this.minus_quanti.TabIndex = 25;
-            this.minus_quanti.Text = "-";
-            this.minus_quanti.UseVisualStyleBackColor = false;
-            this.minus_quanti.Click += new System.EventHandler(this.minus_quanti_Click);
-            // 
-            // cashierOrderForm_quantity
-            // 
-            this.cashierOrderForm_quantity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cashierOrderForm_quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cashierOrderForm_quantity.Location = new System.Drawing.Point(592, 124);
-            this.cashierOrderForm_quantity.Multiline = true;
-            this.cashierOrderForm_quantity.Name = "cashierOrderForm_quantity";
-            this.cashierOrderForm_quantity.Size = new System.Drawing.Size(39, 37);
-            this.cashierOrderForm_quantity.TabIndex = 27;
-            this.cashierOrderForm_quantity.Text = "0";
-            this.cashierOrderForm_quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // add_quanti
-            // 
-            this.add_quanti.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.add_quanti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.add_quanti.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_quanti.ForeColor = System.Drawing.Color.White;
-            this.add_quanti.Location = new System.Drawing.Point(637, 124);
-            this.add_quanti.Name = "add_quanti";
-            this.add_quanti.Size = new System.Drawing.Size(48, 37);
-            this.add_quanti.TabIndex = 28;
-            this.add_quanti.Text = "+";
-            this.add_quanti.UseVisualStyleBackColor = false;
-            this.add_quanti.Click += new System.EventHandler(this.add_quanti_Click);
-            // 
-            // cashierOrderForm_orderList
-            // 
-            this.cashierOrderForm_orderList.Location = new System.Drawing.Point(25, 47);
-            this.cashierOrderForm_orderList.Name = "cashierOrderForm_orderList";
-            this.cashierOrderForm_orderList.Size = new System.Drawing.Size(328, 304);
-            this.cashierOrderForm_orderList.TabIndex = 30;
-            this.cashierOrderForm_orderList.Text = "";
-            // 
             // CashierOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,6 +471,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "CashierOrderForm";
             this.Size = new System.Drawing.Size(1240, 739);
+            this.Load += new System.EventHandler(this.CashierOrderForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cashierOrderForm_menuTable)).EndInit();

@@ -12,9 +12,19 @@ namespace ChillCofee
 {
     public partial class CashierMainForm : Form
     {
+        // Remove duplicate field declarations for adminDashboardForm1, adminAddProducts1, cashierCustomersForm1
+        // Only keep the ones auto-generated in Designer.cs
+        // If you need to reference cashierOrderForm1, declare it here:
+        private CashierOrderForm cashierOrderForm1 = new CashierOrderForm();
+
         public CashierMainForm()
         {
             InitializeComponent();
+            // Add the cashierOrderForm1 to panel2 and set its initial visibility
+            cashierOrderForm1.Location = new Point(0, 0);
+            cashierOrderForm1.Size = new Size(1240, 739);
+            cashierOrderForm1.Visible = false;
+            panel2.Controls.Add(cashierOrderForm1);
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -99,6 +109,11 @@ namespace ChillCofee
             {
                 ccForm.refreshData();
             }
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

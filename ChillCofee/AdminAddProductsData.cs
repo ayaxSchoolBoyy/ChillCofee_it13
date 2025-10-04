@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace ChillCofee
 {
@@ -21,7 +21,8 @@ namespace ChillCofee
         public string DateInsert { set; get; } 
         public string DateUpdate { set; get; }
 
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
+
 
         public List<AdminAddProductsData> productsListData()
         {
@@ -35,9 +36,9 @@ namespace ChillCofee
 
                     string selectData = "SELECT * FROM products WHERE date_delete IS NULL";
 
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                    using (MySqlCommand cmd = new MySqlCommand(selectData, connect))
                     {
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        MySqlDataReader reader = cmd.ExecuteReader();
 
                         while (reader.Read())
                         {
@@ -85,10 +86,10 @@ namespace ChillCofee
 
                     string selectData = "SELECT * FROM products WHERE status = @stats";
 
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                    using (MySqlCommand cmd = new MySqlCommand(selectData, connect))
                     {
                         cmd.Parameters.AddWithValue("@stats", "Available");
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        MySqlDataReader reader = cmd.ExecuteReader();
 
                         while (reader.Read())
                         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -15,7 +15,7 @@ namespace ChillCofee
 {
     public partial class Form1 : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
         public Form1()
         {
             InitializeComponent();
@@ -67,19 +67,20 @@ namespace ChillCofee
 
                         string selectAccount = "SELECT COUNT(*) FROM users WHERE username = @usern AND password = @pass AND status = @status";
 
-                        using (SqlCommand cmd = new SqlCommand(selectAccount, connect))
+                        using (MySqlCommand cmd = new MySqlCommand(selectAccount, connect))
                         {
                             cmd.Parameters.AddWithValue("@usern", login_username.Text.Trim());
                             cmd.Parameters.AddWithValue("@pass", login_password.Text.Trim());
                             cmd.Parameters.AddWithValue("@status", "Active");
 
-                            int rowCount = (int)cmd.ExecuteScalar();
+                            object result = cmd.ExecuteScalar();
+                            int rowCount = result != null && result != DBNull.Value ? Convert.ToInt32(result) : 0;
 
                             if(rowCount > 0)
                             {
                                 string selectRole = "SELECT role FROM users WHERE username = @usern AND password = @pass";
 
-                                using(SqlCommand getRole = new SqlCommand(selectRole, connect))
+                                using(MySqlCommand getRole = new MySqlCommand(selectRole, connect))
                                 {
                                     getRole.Parameters.AddWithValue("@usern", login_username.Text.Trim());
                                     getRole.Parameters.AddWithValue("@pass", login_password.Text.Trim());

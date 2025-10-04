@@ -39,13 +39,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.close = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.adminDashboardForm1 = new ChillCofee.AdminDashboardForm();
             this.adminAddUsers1 = new ChillCofee.AdminAddUsers();
             this.adminAddProducts1 = new ChillCofee.AdminAddProducts();
             this.cashierCustomersForm1 = new ChillCofee.CashierCustomersForm();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.close = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -66,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(260, 739);
+            this.panel1.Size = new System.Drawing.Size(260, 737);
             this.panel1.TabIndex = 2;
             // 
             // logout_btn
@@ -93,7 +93,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(222, 43);
             this.button3.TabIndex = 35;
-            this.button3.Text = "Customers";
+            this.button3.Text = "Transactions";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -192,8 +192,38 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(260, 51);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1240, 739);
+            this.panel2.Size = new System.Drawing.Size(1126, 737);
             this.panel2.TabIndex = 31;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1386, 51);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // close
+            // 
+            this.close.AutoSize = true;
+            this.close.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.close.Location = new System.Drawing.Point(1475, 11);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(18, 18);
+            this.close.TabIndex = 29;
+            this.close.Text = "X";
+            this.close.Click += new System.EventHandler(this.close_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(246, 17);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Chill Coffee Management System";
             // 
             // adminDashboardForm1
             // 
@@ -224,41 +254,11 @@
             this.cashierCustomersForm1.Size = new System.Drawing.Size(1240, 739);
             this.cashierCustomersForm1.TabIndex = 0;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1500, 51);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // close
-            // 
-            this.close.AutoSize = true;
-            this.close.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.close.Location = new System.Drawing.Point(1475, 11);
-            this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(18, 18);
-            this.close.TabIndex = 29;
-            this.close.Text = "X";
-            this.close.Click += new System.EventHandler(this.close_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 17);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Chill Coffee Management System";
-            // 
             // AdminMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1500, 790);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.close);

@@ -168,6 +168,8 @@
             // login_registerBtn
             // 
             this.login_registerBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.login_registerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.login_registerBtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.login_registerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.login_registerBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_registerBtn.ForeColor = System.Drawing.Color.White;
