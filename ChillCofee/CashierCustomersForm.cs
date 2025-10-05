@@ -78,7 +78,7 @@ namespace ChillCofee
                     string query = "SELECT transaction_id, total_price, amount, `change`, date " +
                                    "FROM customers " +
                                    "WHERE date BETWEEN @startDate AND @endDate " +
-                                   "ORDER BY date ASC";
+                                   "ORDER BY transaction_id ASC";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, connect))
                     {
@@ -107,7 +107,7 @@ namespace ChillCofee
                 using (MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;"))
                 {
                     connect.Open();
-                    string query = "SELECT transaction_id, total_price, amount, `change`, date FROM customers ORDER BY date ASC";
+                    string query = "SELECT transaction_id, total_price, amount, `change`, date FROM customers ORDER BY  transaction_id ASC";
                     using (MySqlCommand cmd = new MySqlCommand(query, connect))
                     {
                         DataTable dt = new DataTable();

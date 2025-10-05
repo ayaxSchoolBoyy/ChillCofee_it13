@@ -16,8 +16,8 @@ namespace ChillCofee
         public string Type { set; get; } 
         public string Stock { set; get; } 
         public string Price { set; get; } 
-        public string Status { set; get; } 
-        
+        public string Status { set; get; }
+        public string ImagePath { set; get; }
         public string DateInsert { set; get; } 
         public string DateUpdate { set; get; }
 
@@ -51,7 +51,7 @@ namespace ChillCofee
                             apd.Stock = reader["prod_stock"].ToString();
                             apd.Price = reader["prod_price"].ToString();
                             apd.Status = reader["prod_status"].ToString();
-                            
+                            apd.ImagePath = reader["prod_image"].ToString();
                             apd.DateInsert = reader["date_insert"].ToString();
                             apd.DateUpdate = reader["date_update"].ToString();
 
@@ -101,6 +101,7 @@ namespace ChillCofee
                             apd.Type = reader["prod_type"].ToString();
                             apd.Stock = reader["prod_stock"].ToString();
                             apd.Price = reader["prod_price"].ToString();
+                            apd.ImagePath = reader["prod_image"].ToString();
 
                             listData.Add(apd);
                         }

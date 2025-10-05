@@ -55,7 +55,7 @@ namespace ChillCofee
             adminDashboardForm1.Visible = true;
             adminAddProducts1.Visible = false;
             cashierOrderForm1.Visible = false;
-            cashierCustomersForm1.Visible = false;
+            cashierCustomersForm1.Visible = true;
 
             AdminDashboardForm adForm = adminDashboardForm1 as AdminDashboardForm;
             CashierCustomersForm ccForm = cashierCustomersForm1 as CashierCustomersForm;
@@ -69,15 +69,16 @@ namespace ChillCofee
         private void addProducts_btn_Click(object sender, EventArgs e)
         {
             adminDashboardForm1.Visible = false;
-            adminAddProducts1.Visible = true;
-            cashierOrderForm1.Visible = false;
+            adminAddProducts1.Visible = false;
+            cashierOrderForm1.Visible = true;
             cashierCustomersForm1.Visible = false;
 
-            AdminAddProducts aaProd = adminAddProducts1 as AdminAddProducts;
+            CashierOrderForm coForm = cashierOrderForm1 as CashierOrderForm;
 
-            if (aaProd != null)
+            if (coForm != null)
             {
-                aaProd.refreshData();
+                coForm.refreshData();
+                coForm.displayAvailableProds("All");
             }
         }
 
@@ -93,6 +94,7 @@ namespace ChillCofee
             if (coForm != null)
             {
                 coForm.refreshData();
+                coForm.displayAvailableProds("Meal");
             }
         }
 
@@ -100,14 +102,15 @@ namespace ChillCofee
         {
             adminDashboardForm1.Visible = false;
             adminAddProducts1.Visible = false;
-            cashierOrderForm1.Visible = false;
-            cashierCustomersForm1.Visible = true;
+            cashierOrderForm1.Visible = true;
+            cashierCustomersForm1.Visible = false;
 
-            CashierCustomersForm ccForm = cashierCustomersForm1 as CashierCustomersForm;
+            CashierOrderForm coForm = cashierOrderForm1 as CashierOrderForm;
 
-            if (ccForm != null)
+            if (coForm != null)
             {
-                ccForm.refreshData();
+                coForm.refreshData();
+                coForm.displayAvailableProds("Drinks");
             }
         }
 
