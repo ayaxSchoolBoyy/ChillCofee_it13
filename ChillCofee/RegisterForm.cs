@@ -128,5 +128,10 @@ namespace ChillCofee
                     
             }
         }
+
+        private void register_password_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

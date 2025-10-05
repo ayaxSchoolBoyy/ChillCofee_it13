@@ -115,5 +115,10 @@ namespace ChillCofee
         {
 
         }
+
+        private void adminDashboardForm1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

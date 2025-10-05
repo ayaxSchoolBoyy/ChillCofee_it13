@@ -75,6 +75,7 @@
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1386, 51);
@@ -226,10 +227,11 @@
             // 
             // adminDashboardForm1
             // 
-            this.adminDashboardForm1.Location = new System.Drawing.Point(0, 1);
+            this.adminDashboardForm1.Location = new System.Drawing.Point(0, 0);
             this.adminDashboardForm1.Name = "adminDashboardForm1";
-            this.adminDashboardForm1.Size = new System.Drawing.Size(1240, 739);
+            this.adminDashboardForm1.Size = new System.Drawing.Size(1126, 618);
             this.adminDashboardForm1.TabIndex = 3;
+            this.adminDashboardForm1.Load += new System.EventHandler(this.adminDashboardForm1_Load);
             // 
             // adminAddProducts1
             // 

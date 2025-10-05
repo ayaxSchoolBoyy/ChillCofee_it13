@@ -15,6 +15,7 @@ namespace ChillCofee
 {
     public partial class Form1 : Form
     {
+
         MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
         public Form1()
         {
@@ -110,7 +111,7 @@ namespace ChillCofee
                                 MessageBox.Show("Incorrect Username/Password or there's no Admin's approval.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
 
-                        }
+                        }  
 
                      }
                     catch (Exception ex)
@@ -124,6 +125,11 @@ namespace ChillCofee
                 }
                 
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
