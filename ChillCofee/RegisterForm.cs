@@ -1,9 +1,10 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -16,7 +17,7 @@ namespace ChillCofee
 {
     public partial class RegisterForm : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
         public RegisterForm()
         {
             InitializeComponent();
@@ -68,11 +69,11 @@ namespace ChillCofee
 
                         string selectUsername = "SELECT * FROM users WHERE username = @usern";
 
-                        using (SqlCommand checkUsername = new SqlCommand(selectUsername, connect))
+                        using (MySqlCommand checkUsername = new MySqlCommand(selectUsername, connect))
                         {
                             checkUsername.Parameters.AddWithValue("@usern", register_username.Text.Trim());
 
-                            SqlDataAdapter adapter = new SqlDataAdapter(checkUsername);
+                            MySqlDataAdapter adapter = new MySqlDataAdapter(checkUsername);
                             DataTable table = new DataTable();
                             adapter.Fill(table);
 
@@ -94,7 +95,7 @@ namespace ChillCofee
                                 string insertData = "INSERT INTO users (username, password, profile_image, role, status, date_rag) " +  "VALUES(@usern, @pass, @image, @role, @status, @date)";
                                 DateTime today = DateTime.Today;
 
-                                using (SqlCommand cmd = new SqlCommand(insertData, connect))
+                                using (MySqlCommand cmd = new MySqlCommand(insertData, connect))
                                 {
                                     cmd.Parameters.AddWithValue("@usern", register_username.Text.Trim());
                                     cmd.Parameters.AddWithValue("@pass", register_password.Text.Trim());
@@ -126,6 +127,11 @@ namespace ChillCofee
                 
                     
             }
+        }
+
+        private void register_password_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

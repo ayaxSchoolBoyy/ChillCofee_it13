@@ -12,9 +12,19 @@ namespace ChillCofee
 {
     public partial class CashierMainForm : Form
     {
+        // Remove duplicate field declarations for adminDashboardForm1, adminAddProducts1, cashierCustomersForm1
+        // Only keep the ones auto-generated in Designer.cs
+        // If you need to reference cashierOrderForm1, declare it here:
+        private CashierOrderForm cashierOrderForm1 = new CashierOrderForm();
+
         public CashierMainForm()
         {
             InitializeComponent();
+            // Add the cashierOrderForm1 to panel2 and set its initial visibility
+            cashierOrderForm1.Location = new Point(0, 0);
+            cashierOrderForm1.Size = new Size(1240, 739);
+            cashierOrderForm1.Visible = false;
+            panel2.Controls.Add(cashierOrderForm1);
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -45,7 +55,7 @@ namespace ChillCofee
             adminDashboardForm1.Visible = true;
             adminAddProducts1.Visible = false;
             cashierOrderForm1.Visible = false;
-            cashierCustomersForm1.Visible = false;
+            cashierCustomersForm1.Visible = true;
 
             AdminDashboardForm adForm = adminDashboardForm1 as AdminDashboardForm;
             CashierCustomersForm ccForm = cashierCustomersForm1 as CashierCustomersForm;
@@ -59,15 +69,16 @@ namespace ChillCofee
         private void addProducts_btn_Click(object sender, EventArgs e)
         {
             adminDashboardForm1.Visible = false;
-            adminAddProducts1.Visible = true;
-            cashierOrderForm1.Visible = false;
+            adminAddProducts1.Visible = false;
+            cashierOrderForm1.Visible = true;
             cashierCustomersForm1.Visible = false;
 
-            AdminAddProducts aaProd = adminAddProducts1 as AdminAddProducts;
+            CashierOrderForm coForm = cashierOrderForm1 as CashierOrderForm;
 
-            if (aaProd != null)
+            if (coForm != null)
             {
-                aaProd.refreshData();
+                coForm.refreshData();
+                coForm.displayAvailableProds("All");
             }
         }
 
@@ -83,6 +94,7 @@ namespace ChillCofee
             if (coForm != null)
             {
                 coForm.refreshData();
+                coForm.displayAvailableProds("Meal");
             }
         }
 
@@ -90,15 +102,26 @@ namespace ChillCofee
         {
             adminDashboardForm1.Visible = false;
             adminAddProducts1.Visible = false;
-            cashierOrderForm1.Visible = false;
-            cashierCustomersForm1.Visible = true;
+            cashierOrderForm1.Visible = true;
+            cashierCustomersForm1.Visible = false;
 
-            CashierCustomersForm ccForm = cashierCustomersForm1 as CashierCustomersForm;
+            CashierOrderForm coForm = cashierOrderForm1 as CashierOrderForm;
 
-            if (ccForm != null)
+            if (coForm != null)
             {
-                ccForm.refreshData();
+                coForm.refreshData();
+                coForm.displayAvailableProds("Drinks");
             }
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void adminDashboardForm1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

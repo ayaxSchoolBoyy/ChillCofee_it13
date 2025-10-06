@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace ChillCofee
 {
@@ -16,12 +16,13 @@ namespace ChillCofee
         public string Type { set; get; } 
         public string Stock { set; get; } 
         public string Price { set; get; } 
-        public string Status { set; get; } 
-        
+        public string Status { set; get; }
+        public string ImagePath { set; get; }
         public string DateInsert { set; get; } 
         public string DateUpdate { set; get; }
 
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
+
 
         public List<AdminAddProductsData> productsListData()
         {
@@ -35,9 +36,9 @@ namespace ChillCofee
 
                     string selectData = "SELECT * FROM products WHERE date_delete IS NULL";
 
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                    using (MySqlCommand cmd = new MySqlCommand(selectData, connect))
                     {
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        MySqlDataReader reader = cmd.ExecuteReader();
 
                         while (reader.Read())
                         {
@@ -50,7 +51,7 @@ namespace ChillCofee
                             apd.Stock = reader["prod_stock"].ToString();
                             apd.Price = reader["prod_price"].ToString();
                             apd.Status = reader["prod_status"].ToString();
-                            
+                            apd.ImagePath = reader["prod_image"].ToString();
                             apd.DateInsert = reader["date_insert"].ToString();
                             apd.DateUpdate = reader["date_update"].ToString();
 
@@ -85,10 +86,10 @@ namespace ChillCofee
 
                     string selectData = "SELECT * FROM products WHERE status = @stats";
 
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                    using (MySqlCommand cmd = new MySqlCommand(selectData, connect))
                     {
                         cmd.Parameters.AddWithValue("@stats", "Available");
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        MySqlDataReader reader = cmd.ExecuteReader();
 
                         while (reader.Read())
                         {
@@ -100,6 +101,7 @@ namespace ChillCofee
                             apd.Type = reader["prod_type"].ToString();
                             apd.Stock = reader["prod_stock"].ToString();
                             apd.Price = reader["prod_price"].ToString();
+                            apd.ImagePath = reader["prod_image"].ToString();
 
                             listData.Add(apd);
                         }

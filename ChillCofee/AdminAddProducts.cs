@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -16,7 +16,7 @@ namespace ChillCofee
 {
     public partial class AdminAddProducts : UserControl
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
         public AdminAddProducts()
         {
             InitializeComponent();
@@ -76,11 +76,11 @@ namespace ChillCofee
                         // CHECKING IF THE PRODUCT ID IS EXISTING ALREADY
                         string selectProdID = "SELECT * FROM products WHERE prod_id = @prodID";
 
-                        using (SqlCommand selectPID = new SqlCommand(selectProdID, connect))
+                        using (MySqlCommand selectPID = new MySqlCommand(selectProdID, connect))
                         {
                             selectPID.Parameters.AddWithValue("@prodID", adminAddProducts_id.Text.Trim());
 
-                            SqlDataAdapter adapter = new SqlDataAdapter(selectPID);
+                            MySqlDataAdapter adapter = new MySqlDataAdapter(selectPID);
                             DataTable table = new DataTable();
                             adapter.Fill(table);
 
@@ -92,8 +92,9 @@ namespace ChillCofee
                             else
                             {
                                 string insertData = "INSERT INTO products (prod_id, prod_name, prod_type, " +
-                                    "prod_stock, prod_price, prod_status, date_insert) VALUES(@prodID, @prodName" +
-                                     ", @prodType, @prodStock, @prodPrice, @prodStatus, @dateInsert)";
+                                                    "prod_stock, prod_price, prod_status, prod_image, date_insert) " +
+                                                    "VALUES(@prodID, @prodName, @prodType, @prodStock, @prodPrice, @prodStatus, @prodImage, @dateInsert)";
+
 
 
                                 DateTime today = DateTime.Today;
@@ -102,7 +103,7 @@ namespace ChillCofee
 
                                 
 
-                                using (SqlCommand cmd = new SqlCommand(insertData, connect))
+                                using (MySqlCommand cmd = new MySqlCommand(insertData, connect))
                                 {
                                     cmd.Parameters.AddWithValue("@prodID", adminAddProducts_id.Text.Trim());
                                     cmd.Parameters.AddWithValue("@prodName", adminAddProducts_name.Text.Trim());
@@ -110,7 +111,7 @@ namespace ChillCofee
                                     cmd.Parameters.AddWithValue("@prodStock", adminAddProducts_stock.Text.Trim());
                                     cmd.Parameters.AddWithValue("@prodPrice", adminAddProducts_price.Text.Trim());
                                     cmd.Parameters.AddWithValue("@prodStatus", adminAddProducts_status.Text.Trim());
-
+                                    cmd.Parameters.AddWithValue("@prodImage", imagePath);
                                     cmd.Parameters.AddWithValue("@dateInsert", today);
 
                                     cmd.ExecuteNonQuery();
@@ -149,7 +150,9 @@ namespace ChillCofee
             adminAddProducts_stock.Text = "";
             adminAddProducts_price.Text = "";
             adminAddProducts_status.SelectedIndex = -1;
-            
+            adminAddProducts_imageBox.Image = null;
+            imagePath = "";
+
 
         }
 
@@ -160,20 +163,36 @@ namespace ChillCofee
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                adminAddProducts_id.Text = row.Cells[1].Value.ToString();
-                adminAddProducts_name.Text = row.Cells[2].Value.ToString();
-                adminAddProducts_type.Text = row.Cells[3].Value.ToString();
-                adminAddProducts_stock.Text = row.Cells[4].Value.ToString();
-                adminAddProducts_price.Text = row.Cells[5].Value.ToString();
-                adminAddProducts_status.Text = row.Cells[6].Value.ToString();
 
-                
+                adminAddProducts_id.Text = row.Cells["ProductID"].Value.ToString();
+                adminAddProducts_name.Text = row.Cells["ProductName"].Value.ToString();
+                adminAddProducts_type.Text = row.Cells["Type"].Value.ToString();
+                adminAddProducts_stock.Text = row.Cells["Stock"].Value.ToString();
+                adminAddProducts_price.Text = row.Cells["Price"].Value.ToString();
+                adminAddProducts_status.Text = row.Cells["Status"].Value.ToString();
 
+                // ✅ FIX: assign the actual image path to the global variable
+                imagePath = row.Cells["ImagePath"].Value?.ToString();
+
+                // ✅ FIX: check if file exists before loading it
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                {
+                    // Dispose the old image to avoid memory leaks
+                    if (adminAddProducts_imageBox.Image != null)
+                        adminAddProducts_imageBox.Image.Dispose();
+
+                    adminAddProducts_imageBox.Image = Image.FromFile(imagePath);
+                }
+                else
+                {
+                    adminAddProducts_imageBox.Image = null;
+                }
             }
         }
+
 
         private void adminAddProducts_updateBtn_Click(object sender, EventArgs e)
         {
@@ -194,11 +213,12 @@ namespace ChillCofee
                         {
                             connect.Open();
 
-                            string updateData = "UPDATE products SET prod_name = @prodName, prod_type = @prodType, prod_stock = @prodStock, prod_price = @prodPrice, prod_status = @prodStatus, date_update = @dateUpdate WHERE prod_id = @prodID";
+                            string updateData = "UPDATE products SET prod_name = @prodName, prod_type = @prodType, prod_stock = @prodStock, prod_price = @prodPrice, prod_status = @prodStatus, prod_image = @prodImage, date_update = @dateUpdate WHERE prod_id = @prodID";
+
 
                             DateTime today = DateTime.Today;
 
-                            using (SqlCommand updateD = new SqlCommand(updateData, connect))
+                            using (MySqlCommand updateD = new MySqlCommand(updateData, connect))
                             {
                                 updateD.Parameters.AddWithValue("@prodName", adminAddProducts_name.Text.Trim());
                                 updateD.Parameters.AddWithValue("@prodType", adminAddProducts_type.Text.Trim());
@@ -207,7 +227,7 @@ namespace ChillCofee
                                 updateD.Parameters.AddWithValue("@prodStatus", adminAddProducts_status.Text.Trim());
                                 updateD.Parameters.AddWithValue("@dateUpdate", today);
                                 updateD.Parameters.AddWithValue("@prodID", adminAddProducts_id.Text.Trim());
-
+                                updateD.Parameters.AddWithValue("@prodImage", imagePath);
                                 updateD.ExecuteNonQuery();
                                 clearFields();
 
@@ -251,7 +271,7 @@ namespace ChillCofee
                             string updateData = "UPDATE products SET date_delete = @dateDelete WHERE prod_id = @prodID";
                             DateTime today = DateTime.Today;
 
-                            using (SqlCommand updateD = new SqlCommand(updateData, connect))
+                            using (MySqlCommand updateD = new MySqlCommand(updateData, connect))
                             {
 
                                 updateD.Parameters.AddWithValue("@dateDelete", today);
@@ -276,6 +296,24 @@ namespace ChillCofee
                     }
                 }
             }
+        }
+        string imagePath = "";
+
+        private void adminAddProducts_importBtn_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif" })
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    imagePath = ofd.FileName;
+                    adminAddProducts_imageBox.Image = Image.FromFile(imagePath);
+                }
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

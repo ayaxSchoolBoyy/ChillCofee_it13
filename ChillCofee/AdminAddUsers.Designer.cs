@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.adminAddUsers_clearBtn = new System.Windows.Forms.Button();
             this.adminAddUsers_deleteBtn = new System.Windows.Forms.Button();
             this.adminAddUsers_updateBtn = new System.Windows.Forms.Button();
@@ -46,11 +47,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,11 +74,26 @@
             this.panel1.Size = new System.Drawing.Size(351, 709);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::ChillCofee.Properties.Resources.Screenshot_2025_09_16_000942_removebg_preview;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(61, 18);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(219, 220);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
             // adminAddUsers_clearBtn
             // 
-            this.adminAddUsers_clearBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.adminAddUsers_clearBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(109)))), ((int)(((byte)(82)))));
+            this.adminAddUsers_clearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adminAddUsers_clearBtn.FlatAppearance.BorderSize = 0;
+            this.adminAddUsers_clearBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(56)))), ((int)(((byte)(41)))));
+            this.adminAddUsers_clearBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
             this.adminAddUsers_clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adminAddUsers_clearBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminAddUsers_clearBtn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.adminAddUsers_clearBtn.ForeColor = System.Drawing.Color.White;
             this.adminAddUsers_clearBtn.Location = new System.Drawing.Point(183, 586);
             this.adminAddUsers_clearBtn.Name = "adminAddUsers_clearBtn";
@@ -90,9 +105,13 @@
             // 
             // adminAddUsers_deleteBtn
             // 
-            this.adminAddUsers_deleteBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.adminAddUsers_deleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(109)))), ((int)(((byte)(82)))));
+            this.adminAddUsers_deleteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adminAddUsers_deleteBtn.FlatAppearance.BorderSize = 0;
+            this.adminAddUsers_deleteBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(56)))), ((int)(((byte)(41)))));
+            this.adminAddUsers_deleteBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
             this.adminAddUsers_deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adminAddUsers_deleteBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminAddUsers_deleteBtn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.adminAddUsers_deleteBtn.ForeColor = System.Drawing.Color.White;
             this.adminAddUsers_deleteBtn.Location = new System.Drawing.Point(42, 586);
             this.adminAddUsers_deleteBtn.Name = "adminAddUsers_deleteBtn";
@@ -104,9 +123,13 @@
             // 
             // adminAddUsers_updateBtn
             // 
-            this.adminAddUsers_updateBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.adminAddUsers_updateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(109)))), ((int)(((byte)(82)))));
+            this.adminAddUsers_updateBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adminAddUsers_updateBtn.FlatAppearance.BorderSize = 0;
+            this.adminAddUsers_updateBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(56)))), ((int)(((byte)(41)))));
+            this.adminAddUsers_updateBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
             this.adminAddUsers_updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adminAddUsers_updateBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminAddUsers_updateBtn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.adminAddUsers_updateBtn.ForeColor = System.Drawing.Color.White;
             this.adminAddUsers_updateBtn.Location = new System.Drawing.Point(183, 514);
             this.adminAddUsers_updateBtn.Name = "adminAddUsers_updateBtn";
@@ -118,9 +141,13 @@
             // 
             // adminAddUsers_addBtn
             // 
-            this.adminAddUsers_addBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.adminAddUsers_addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(109)))), ((int)(((byte)(82)))));
+            this.adminAddUsers_addBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adminAddUsers_addBtn.FlatAppearance.BorderSize = 0;
+            this.adminAddUsers_addBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(56)))), ((int)(((byte)(41)))));
+            this.adminAddUsers_addBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
             this.adminAddUsers_addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adminAddUsers_addBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminAddUsers_addBtn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.adminAddUsers_addBtn.ForeColor = System.Drawing.Color.White;
             this.adminAddUsers_addBtn.Location = new System.Drawing.Point(42, 514);
             this.adminAddUsers_addBtn.Name = "adminAddUsers_addBtn";
@@ -138,7 +165,7 @@
             "Active",
             "Inactive",
             "Approval"});
-            this.adminAddUsers_status.Location = new System.Drawing.Point(129, 412);
+            this.adminAddUsers_status.Location = new System.Drawing.Point(115, 412);
             this.adminAddUsers_status.Name = "adminAddUsers_status";
             this.adminAddUsers_status.Size = new System.Drawing.Size(206, 32);
             this.adminAddUsers_status.TabIndex = 11;
@@ -150,7 +177,7 @@
             this.adminAddUsers_role.Items.AddRange(new object[] {
             "Admin",
             "Cashier"});
-            this.adminAddUsers_role.Location = new System.Drawing.Point(129, 367);
+            this.adminAddUsers_role.Location = new System.Drawing.Point(115, 367);
             this.adminAddUsers_role.Name = "adminAddUsers_role";
             this.adminAddUsers_role.Size = new System.Drawing.Size(206, 32);
             this.adminAddUsers_role.TabIndex = 10;
@@ -159,7 +186,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(68, 420);
+            this.label4.Location = new System.Drawing.Point(54, 420);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 17);
             this.label4.TabIndex = 8;
@@ -169,7 +196,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(78, 375);
+            this.label5.Location = new System.Drawing.Point(64, 375);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 17);
             this.label5.TabIndex = 6;
@@ -179,7 +206,7 @@
             // 
             this.adminAddUsers_password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.adminAddUsers_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminAddUsers_password.Location = new System.Drawing.Point(129, 326);
+            this.adminAddUsers_password.Location = new System.Drawing.Point(115, 326);
             this.adminAddUsers_password.Name = "adminAddUsers_password";
             this.adminAddUsers_password.Size = new System.Drawing.Size(206, 26);
             this.adminAddUsers_password.TabIndex = 5;
@@ -188,7 +215,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 331);
+            this.label3.Location = new System.Drawing.Point(25, 331);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 17);
             this.label3.TabIndex = 4;
@@ -198,7 +225,7 @@
             // 
             this.adminAddUsers_username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.adminAddUsers_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminAddUsers_username.Location = new System.Drawing.Point(129, 283);
+            this.adminAddUsers_username.Location = new System.Drawing.Point(115, 283);
             this.adminAddUsers_username.Name = "adminAddUsers_username";
             this.adminAddUsers_username.Size = new System.Drawing.Size(206, 26);
             this.adminAddUsers_username.TabIndex = 3;
@@ -207,7 +234,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(39, 288);
+            this.label2.Location = new System.Drawing.Point(25, 288);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 17);
             this.label2.TabIndex = 2;
@@ -220,7 +247,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(382, 16);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(841, 709);
+            this.panel2.Size = new System.Drawing.Size(729, 709);
             this.panel2.TabIndex = 1;
             // 
             // dataGridView1
@@ -228,21 +255,21 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 62);
+            this.dataGridView1.Location = new System.Drawing.Point(19, 56);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(810, 632);
+            this.dataGridView1.Size = new System.Drawing.Size(696, 632);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -260,31 +287,22 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::ChillCofee.Properties.Resources.Screenshot_2025_09_16_000942_removebg_preview;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(75, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(219, 220);
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
-            // 
             // AdminAddUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "AdminAddUsers";
-            this.Size = new System.Drawing.Size(1240, 739);
+            this.Size = new System.Drawing.Size(1126, 737);
+            this.Load += new System.EventHandler(this.AdminAddUsers_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

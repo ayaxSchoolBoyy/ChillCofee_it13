@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +10,7 @@ namespace ChillCofee
 {
     internal class CashierOrdersData
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
 
         //public int ID { set; get; }
         public int CID { set; get; }
@@ -29,9 +29,9 @@ namespace ChillCofee
                 {
                     connect.Open();
                     int custID = 0;
-                    string selectCustData = "SELECT MAX(customer_id) FROM orders";
+                    string selectCustData = "SELECT MAX(transaction_id) FROM orders";
 
-                    using (SqlCommand getCustData = new SqlCommand(selectCustData, connect))
+                    using (MySqlCommand getCustData = new MySqlCommand(selectCustData, connect))
                     {
                         object result = getCustData.ExecuteScalar();
 
@@ -54,20 +54,20 @@ namespace ChillCofee
                         }
                     }
 
-                    string selectOrders = "SELECT * FROM orders WHERE customer_id = @customerID";
+                    string selectOrders = "SELECT * FROM orders WHERE transaction_id = @customerID";
 
-                    using (SqlCommand cmd = new SqlCommand(selectOrders, connect))
+                    using (MySqlCommand cmd = new MySqlCommand(selectOrders, connect))
                     {
                         cmd.Parameters.AddWithValue("@customerID", custID);
 
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        MySqlDataReader reader = cmd.ExecuteReader();
 
                         while (reader.Read())
                         {
                             CashierOrdersData coData = new CashierOrdersData();
 
                             //coData.ID = (int)reader["id"];
-                            coData.CID = (int)reader["customer_id"];
+                            coData.CID = (int)reader["transaction_id"];
                             coData.ProdID = reader["prod_id"].ToString();
                             coData.ProdName = reader["prod_name"].ToString();
                             coData.ProdType = reader["prod_type"].ToString();

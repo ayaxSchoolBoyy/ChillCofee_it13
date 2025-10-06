@@ -1,20 +1,20 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data;
+using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace ChillCofee
 {
     internal class CustomersData
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
 
-        public int CustomerID { set; get; }
+        public int TransactionID { set; get; }
         public string TotalPrice { set; get; }
         public string Amount { set; get; }
         public string Change { set; get; }
@@ -32,15 +32,15 @@ namespace ChillCofee
 
                     string selectData = "SELECT * FROM customers";
 
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                    using (MySqlCommand cmd = new MySqlCommand(selectData, connect))
                     {
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        MySqlDataReader reader = cmd.ExecuteReader();
 
                         while (reader.Read())
                         {
                             CustomersData cData = new CustomersData();
 
-                            cData.CustomerID = (int)reader["customer_id"];
+                            cData.TransactionID = (int)reader["transaction_id"];
                             cData.TotalPrice = reader["total_price"].ToString();
                             cData.Amount = reader["amount"].ToString();
                             cData.Change = reader["change"].ToString();
@@ -62,6 +62,7 @@ namespace ChillCofee
 
             return listData;
         }
+
 
     
     }

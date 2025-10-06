@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -14,7 +14,7 @@ namespace ChillCofee
 {
     public partial class AdminDashboardForm : UserControl
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
         public AdminDashboardForm()
         {
             InitializeComponent();
@@ -51,12 +51,12 @@ namespace ChillCofee
 
                     string selectData = "SELECT COUNT(id) FROM users WHERE role = @role AND status = @status";
 
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                    using (MySqlCommand cmd = new MySqlCommand(selectData, connect))
                     {
                         cmd.Parameters.AddWithValue("@role", "Cashier");
                         cmd.Parameters.AddWithValue("@status", "Active");
 
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        MySqlDataReader reader = cmd.ExecuteReader();
 
                         if (reader.Read())
                         {
@@ -85,12 +85,12 @@ namespace ChillCofee
                 {
                     connect.Open();
 
-                    string selectData = "SELECT COUNT(id) FROM customers";
+                    string selectData = "SELECT COUNT(transaction_id) FROM customers";
 
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                    using (MySqlCommand cmd = new MySqlCommand(selectData, connect))
                     {
 
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        MySqlDataReader reader = cmd.ExecuteReader();
 
                         if (reader.Read())
                         {
@@ -121,14 +121,14 @@ namespace ChillCofee
 
                     string selectData = "SELECT sum(total_price) FROM customers WHERE DATE = @date";
 
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                    using (MySqlCommand cmd = new MySqlCommand(selectData, connect))
                     {
                         DateTime today = DateTime.Today;
                         string getToday = today.ToString("yyyy-MM-dd");
 
                         cmd.Parameters.AddWithValue("@date", getToday);
 
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        MySqlDataReader reader = cmd.ExecuteReader();
 
                         if (reader.Read())
                         {
@@ -165,14 +165,15 @@ namespace ChillCofee
 
                     string selectData = "SELECT SUM(total_price) FROM customers";
 
-                    using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                    using (MySqlCommand cmd = new MySqlCommand(selectData, connect))
                     {
 
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        MySqlDataReader reader = cmd.ExecuteReader();
 
                         if (reader.Read())
                         {
-                            int count = Convert.ToInt32(reader[0]);
+                            object value = reader[0];
+                            int count = (value != DBNull.Value) ? Convert.ToInt32(value) : 0;
                             dashboard_TIn.Text = "₱" + count.ToString("0.00");
                         }
 
@@ -191,6 +192,11 @@ namespace ChillCofee
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

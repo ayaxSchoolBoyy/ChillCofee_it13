@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -16,7 +16,7 @@ namespace ChillCofee
 {
     public partial class AdminAddUsers : UserControl
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\Documents\cafe.mdf;Integrated Security=True;Connect Timeout=30");
+        MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
         public AdminAddUsers()
         {
             InitializeComponent();
@@ -75,11 +75,11 @@ namespace ChillCofee
                        
                         string selectUsern = "SELECT * FROM users WHERE username = @usern";
 
-                        using (SqlCommand checkUsern = new SqlCommand(selectUsern, connect))
+                        using (MySqlCommand checkUsern = new MySqlCommand(selectUsern, connect))
                         {
                             checkUsern.Parameters.AddWithValue("@usern", adminAddUsers_username.Text.Trim());
 
-                            SqlDataAdapter adapter = new SqlDataAdapter(checkUsern);
+                            MySqlDataAdapter adapter = new MySqlDataAdapter(checkUsern);
                             DataTable table = new DataTable();
                             adapter.Fill(table);
 
@@ -98,7 +98,7 @@ namespace ChillCofee
 
                                 
 
-                                using (SqlCommand cmd = new SqlCommand(insertData, connect))
+                                using (MySqlCommand cmd = new MySqlCommand(insertData, connect))
                                 {
                                     cmd.Parameters.AddWithValue("@usern", adminAddUsers_username.Text.Trim());
                                     cmd.Parameters.AddWithValue("@pass", adminAddUsers_password.Text.Trim());
@@ -172,7 +172,7 @@ namespace ChillCofee
                             string updateData = "UPDATE users SET username = @usern, password = @pass, role = @role, status = @status WHERE id = @id";
 
 
-                            using (SqlCommand cmd = new SqlCommand(updateData, connect))
+                            using (MySqlCommand cmd = new MySqlCommand(updateData, connect))
                             {
                                 cmd.Parameters.AddWithValue("@usern", adminAddUsers_username.Text.Trim());
                                 cmd.Parameters.AddWithValue("@pass", adminAddUsers_password.Text.Trim());
@@ -237,7 +237,7 @@ namespace ChillCofee
 
                             string deleteData = "DELETE FROM users WHERE id = @id";
 
-                            using (SqlCommand cmd = new SqlCommand(deleteData, connect))
+                            using (MySqlCommand cmd = new MySqlCommand(deleteData, connect))
                             {
 
                                 cmd.Parameters.AddWithValue("@id", id);
@@ -262,6 +262,11 @@ namespace ChillCofee
                     }
                 }
             }
+        }
+
+        private void AdminAddUsers_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
