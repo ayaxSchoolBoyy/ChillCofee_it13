@@ -56,9 +56,10 @@
             this.register_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.register_btn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.register_btn.ForeColor = System.Drawing.Color.White;
-            this.register_btn.Location = new System.Drawing.Point(403, 407);
+            this.register_btn.Location = new System.Drawing.Point(537, 501);
+            this.register_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.register_btn.Name = "register_btn";
-            this.register_btn.Size = new System.Drawing.Size(290, 45);
+            this.register_btn.Size = new System.Drawing.Size(387, 55);
             this.register_btn.TabIndex = 26;
             this.register_btn.Text = "SIGNUP";
             this.register_btn.UseVisualStyleBackColor = false;
@@ -69,9 +70,10 @@
             this.register_showPass.AutoSize = true;
             this.register_showPass.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.register_showPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
-            this.register_showPass.Location = new System.Drawing.Point(407, 373);
+            this.register_showPass.Location = new System.Drawing.Point(543, 459);
+            this.register_showPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.register_showPass.Name = "register_showPass";
-            this.register_showPass.Size = new System.Drawing.Size(107, 19);
+            this.register_showPass.Size = new System.Drawing.Size(132, 24);
             this.register_showPass.TabIndex = 25;
             this.register_showPass.Text = "show password";
             this.register_showPass.UseVisualStyleBackColor = true;
@@ -83,11 +85,11 @@
             this.register_password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.register_password.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.register_password.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.register_password.Location = new System.Drawing.Point(403, 278);
-            this.register_password.Margin = new System.Windows.Forms.Padding(0, 5, 0, 15);
+            this.register_password.Location = new System.Drawing.Point(537, 342);
+            this.register_password.Margin = new System.Windows.Forms.Padding(0, 6, 0, 18);
             this.register_password.Name = "register_password";
             this.register_password.PasswordChar = '*';
-            this.register_password.Size = new System.Drawing.Size(290, 25);
+            this.register_password.Size = new System.Drawing.Size(386, 30);
             this.register_password.TabIndex = 24;
             this.register_password.TextChanged += new System.EventHandler(this.register_password_TextChanged);
             // 
@@ -96,9 +98,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
-            this.label4.Location = new System.Drawing.Point(401, 258);
+            this.label4.Location = new System.Drawing.Point(535, 318);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 17);
+            this.label4.Size = new System.Drawing.Size(106, 22);
             this.label4.TabIndex = 23;
             this.label4.Text = "Password:";
             // 
@@ -108,10 +111,10 @@
             this.register_username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.register_username.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.register_username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.register_username.Location = new System.Drawing.Point(403, 213);
-            this.register_username.Margin = new System.Windows.Forms.Padding(0, 5, 0, 15);
+            this.register_username.Location = new System.Drawing.Point(537, 262);
+            this.register_username.Margin = new System.Windows.Forms.Padding(0, 6, 0, 18);
             this.register_username.Name = "register_username";
-            this.register_username.Size = new System.Drawing.Size(290, 25);
+            this.register_username.Size = new System.Drawing.Size(386, 30);
             this.register_username.TabIndex = 22;
             // 
             // label3
@@ -119,9 +122,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
-            this.label3.Location = new System.Drawing.Point(400, 193);
+            this.label3.Location = new System.Drawing.Point(533, 238);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 17);
+            this.label3.Size = new System.Drawing.Size(109, 22);
             this.label3.TabIndex = 21;
             this.label3.Text = "Username:";
             // 
@@ -130,9 +134,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(109)))), ((int)(((byte)(82)))));
-            this.label2.Location = new System.Drawing.Point(406, 113);
+            this.label2.Location = new System.Drawing.Point(541, 139);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 37);
+            this.label2.Size = new System.Drawing.Size(162, 46);
             this.label2.TabIndex = 20;
             this.label2.Text = "REGISTER";
             // 
@@ -140,24 +145,26 @@
             // 
             this.close.AutoSize = true;
             this.close.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.close.Location = new System.Drawing.Point(692, 8);
+            this.close.Location = new System.Drawing.Point(923, 10);
+            this.close.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(20, 21);
+            this.close.Size = new System.Drawing.Size(25, 28);
             this.close.TabIndex = 19;
             this.close.Text = "X";
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(199)))), ((int)(((byte)(170)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.register_loginBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(20, 20);
+            this.panel1.Location = new System.Drawing.Point(27, 25);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(352, 501);
+            this.panel1.Size = new System.Drawing.Size(469, 616);
             this.panel1.TabIndex = 18;
             // 
             // pictureBox1
@@ -165,9 +172,10 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::ChillCofee.Properties.Resources.Screenshot_2025_09_16_000942_removebg_preview;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(68, 93);
+            this.pictureBox1.Location = new System.Drawing.Point(91, 114);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(219, 220);
+            this.pictureBox1.Size = new System.Drawing.Size(292, 271);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
@@ -176,9 +184,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
-            this.label5.Location = new System.Drawing.Point(95, 431);
+            this.label5.Location = new System.Drawing.Point(127, 530);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 19);
+            this.label5.Size = new System.Drawing.Size(206, 23);
             this.label5.TabIndex = 9;
             this.label5.Text = "Already have an account?";
             // 
@@ -190,10 +199,11 @@
             this.register_loginBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.register_loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.register_loginBtn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.register_loginBtn.ForeColor = System.Drawing.Color.SteelBlue;
-            this.register_loginBtn.Location = new System.Drawing.Point(33, 453);
+            this.register_loginBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(109)))), ((int)(((byte)(82)))));
+            this.register_loginBtn.Location = new System.Drawing.Point(44, 558);
+            this.register_loginBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.register_loginBtn.Name = "register_loginBtn";
-            this.register_loginBtn.Size = new System.Drawing.Size(288, 35);
+            this.register_loginBtn.Size = new System.Drawing.Size(384, 43);
             this.register_loginBtn.TabIndex = 9;
             this.register_loginBtn.Text = "SIGN IN";
             this.register_loginBtn.UseVisualStyleBackColor = false;
@@ -205,11 +215,11 @@
             this.register_cPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.register_cPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.register_cPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.register_cPassword.Location = new System.Drawing.Point(403, 339);
-            this.register_cPassword.Margin = new System.Windows.Forms.Padding(0, 5, 0, 15);
+            this.register_cPassword.Location = new System.Drawing.Point(537, 417);
+            this.register_cPassword.Margin = new System.Windows.Forms.Padding(0, 6, 0, 18);
             this.register_cPassword.Name = "register_cPassword";
             this.register_cPassword.PasswordChar = '*';
-            this.register_cPassword.Size = new System.Drawing.Size(290, 25);
+            this.register_cPassword.Size = new System.Drawing.Size(386, 30);
             this.register_cPassword.TabIndex = 28;
             // 
             // label6
@@ -217,18 +227,19 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
-            this.label6.Location = new System.Drawing.Point(400, 320);
+            this.label6.Location = new System.Drawing.Point(533, 394);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(147, 17);
+            this.label6.Size = new System.Drawing.Size(183, 22);
             this.label6.TabIndex = 27;
             this.label6.Text = "Confirm Password:";
             // 
             // RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
-            this.ClientSize = new System.Drawing.Size(723, 541);
+            this.ClientSize = new System.Drawing.Size(964, 666);
             this.Controls.Add(this.register_cPassword);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.register_btn);
@@ -241,8 +252,9 @@
             this.Controls.Add(this.close);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RegisterForm";
-            this.Padding = new System.Windows.Forms.Padding(20);
+            this.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterForm";
             this.panel1.ResumeLayout(false);

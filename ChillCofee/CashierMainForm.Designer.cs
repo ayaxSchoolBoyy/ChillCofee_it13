@@ -54,9 +54,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 18);
+            this.label1.Location = new System.Drawing.Point(19, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 17);
+            this.label1.Size = new System.Drawing.Size(310, 22);
             this.label1.TabIndex = 33;
             this.label1.Text = "Chill Coffee Management System";
             // 
@@ -64,9 +65,10 @@
             // 
             this.close.AutoSize = true;
             this.close.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.close.Location = new System.Drawing.Point(1475, 11);
+            this.close.Location = new System.Drawing.Point(1967, 14);
+            this.close.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(18, 18);
+            this.close.Size = new System.Drawing.Size(22, 23);
             this.close.TabIndex = 32;
             this.close.Text = "X";
             this.close.Click += new System.EventHandler(this.close_Click);
@@ -77,8 +79,9 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1386, 51);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1848, 63);
             this.flowLayoutPanel1.TabIndex = 31;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
@@ -92,9 +95,10 @@
             this.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logout_btn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.logout_btn.ForeColor = System.Drawing.Color.White;
-            this.logout_btn.Location = new System.Drawing.Point(19, 663);
+            this.logout_btn.Location = new System.Drawing.Point(25, 816);
+            this.logout_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logout_btn.Name = "logout_btn";
-            this.logout_btn.Size = new System.Drawing.Size(222, 43);
+            this.logout_btn.Size = new System.Drawing.Size(296, 53);
             this.logout_btn.TabIndex = 36;
             this.logout_btn.Text = "Logout";
             this.logout_btn.UseVisualStyleBackColor = false;
@@ -110,9 +114,10 @@
             this.customer_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.customer_btn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.customer_btn.ForeColor = System.Drawing.Color.White;
-            this.customer_btn.Location = new System.Drawing.Point(17, 484);
+            this.customer_btn.Location = new System.Drawing.Point(23, 596);
+            this.customer_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.customer_btn.Name = "customer_btn";
-            this.customer_btn.Size = new System.Drawing.Size(222, 43);
+            this.customer_btn.Size = new System.Drawing.Size(296, 53);
             this.customer_btn.TabIndex = 35;
             this.customer_btn.Text = "Drinks";
             this.customer_btn.UseVisualStyleBackColor = false;
@@ -128,9 +133,10 @@
             this.order_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.order_btn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.order_btn.ForeColor = System.Drawing.Color.White;
-            this.order_btn.Location = new System.Drawing.Point(17, 421);
+            this.order_btn.Location = new System.Drawing.Point(23, 518);
+            this.order_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.order_btn.Name = "order_btn";
-            this.order_btn.Size = new System.Drawing.Size(222, 43);
+            this.order_btn.Size = new System.Drawing.Size(296, 53);
             this.order_btn.TabIndex = 34;
             this.order_btn.Text = "Meals";
             this.order_btn.UseVisualStyleBackColor = false;
@@ -146,9 +152,10 @@
             this.addProducts_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addProducts_btn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.addProducts_btn.ForeColor = System.Drawing.Color.White;
-            this.addProducts_btn.Location = new System.Drawing.Point(17, 359);
+            this.addProducts_btn.Location = new System.Drawing.Point(23, 442);
+            this.addProducts_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addProducts_btn.Name = "addProducts_btn";
-            this.addProducts_btn.Size = new System.Drawing.Size(222, 43);
+            this.addProducts_btn.Size = new System.Drawing.Size(296, 53);
             this.addProducts_btn.TabIndex = 33;
             this.addProducts_btn.Text = "All Items";
             this.addProducts_btn.UseVisualStyleBackColor = false;
@@ -164,9 +171,10 @@
             this.dashboard_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dashboard_btn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.dashboard_btn.ForeColor = System.Drawing.Color.White;
-            this.dashboard_btn.Location = new System.Drawing.Point(17, 294);
+            this.dashboard_btn.Location = new System.Drawing.Point(23, 362);
+            this.dashboard_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dashboard_btn.Name = "dashboard_btn";
-            this.dashboard_btn.Size = new System.Drawing.Size(222, 43);
+            this.dashboard_btn.Size = new System.Drawing.Size(296, 53);
             this.dashboard_btn.TabIndex = 31;
             this.dashboard_btn.Text = "Dashboard";
             this.dashboard_btn.UseVisualStyleBackColor = false;
@@ -177,9 +185,10 @@
             this.username.AutoSize = true;
             this.username.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.username.ForeColor = System.Drawing.Color.White;
-            this.username.Location = new System.Drawing.Point(98, 252);
+            this.username.Location = new System.Drawing.Point(131, 310);
+            this.username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(48, 15);
+            this.username.Size = new System.Drawing.Size(62, 20);
             this.username.TabIndex = 32;
             this.username.Text = "Admin";
             // 
@@ -188,9 +197,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(16, 252);
+            this.label3.Location = new System.Drawing.Point(21, 310);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 15);
+            this.label3.Size = new System.Drawing.Size(98, 20);
             this.label3.TabIndex = 31;
             this.label3.Text = "Username:";
             // 
@@ -199,15 +209,16 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(34, 205);
+            this.label2.Location = new System.Drawing.Point(45, 252);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(198, 28);
+            this.label2.Size = new System.Drawing.Size(247, 34);
             this.label2.TabIndex = 31;
             this.label2.Text = "Cashier\'s Portal";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(199)))), ((int)(((byte)(170)))));
             this.panel1.Controls.Add(this.logout_btn);
             this.panel1.Controls.Add(this.customer_btn);
             this.panel1.Controls.Add(this.order_btn);
@@ -218,9 +229,10 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 51);
+            this.panel1.Location = new System.Drawing.Point(0, 63);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(260, 737);
+            this.panel1.Size = new System.Drawing.Size(347, 907);
             this.panel1.TabIndex = 34;
             // 
             // pictureBox1
@@ -228,9 +240,10 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::ChillCofee.Properties.Resources.Screenshot_2025_09_16_000942_removebg_preview;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(46, 32);
+            this.pictureBox1.Location = new System.Drawing.Point(61, 39);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(174, 170);
+            this.pictureBox1.Size = new System.Drawing.Size(232, 209);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
@@ -240,9 +253,10 @@
             this.panel2.Controls.Add(this.adminAddProducts1);
             this.panel2.Controls.Add(this.cashierCustomersForm1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(260, 51);
+            this.panel2.Location = new System.Drawing.Point(347, 63);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1126, 737);
+            this.panel2.Size = new System.Drawing.Size(1501, 907);
             this.panel2.TabIndex = 35;
             // 
             // adminDashboardForm1
@@ -250,8 +264,9 @@
             this.adminDashboardForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.adminDashboardForm1.Dock = System.Windows.Forms.DockStyle.Top;
             this.adminDashboardForm1.Location = new System.Drawing.Point(0, 0);
+            this.adminDashboardForm1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.adminDashboardForm1.Name = "adminDashboardForm1";
-            this.adminDashboardForm1.Size = new System.Drawing.Size(1126, 267);
+            this.adminDashboardForm1.Size = new System.Drawing.Size(1501, 329);
             this.adminDashboardForm1.TabIndex = 3;
             this.adminDashboardForm1.Load += new System.EventHandler(this.adminDashboardForm1_Load);
             // 
@@ -259,8 +274,9 @@
             // 
             this.adminAddProducts1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.adminAddProducts1.Location = new System.Drawing.Point(0, 0);
+            this.adminAddProducts1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.adminAddProducts1.Name = "adminAddProducts1";
-            this.adminAddProducts1.Size = new System.Drawing.Size(1240, 267);
+            this.adminAddProducts1.Size = new System.Drawing.Size(1653, 329);
             this.adminAddProducts1.TabIndex = 2;
             // 
             // cashierCustomersForm1
@@ -268,23 +284,25 @@
             this.cashierCustomersForm1.AutoScroll = true;
             this.cashierCustomersForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.cashierCustomersForm1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cashierCustomersForm1.Location = new System.Drawing.Point(0, 255);
+            this.cashierCustomersForm1.Location = new System.Drawing.Point(0, 314);
+            this.cashierCustomersForm1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cashierCustomersForm1.Name = "cashierCustomersForm1";
-            this.cashierCustomersForm1.Size = new System.Drawing.Size(1126, 482);
+            this.cashierCustomersForm1.Size = new System.Drawing.Size(1501, 593);
             this.cashierCustomersForm1.TabIndex = 0;
             // 
             // CashierMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1848, 970);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.close);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CashierMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CashierMainForm";
