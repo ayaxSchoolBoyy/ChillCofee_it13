@@ -39,13 +39,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.close = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.adminDashboardForm1 = new ChillCofee.AdminDashboardForm();
             this.adminAddUsers1 = new ChillCofee.AdminAddUsers();
             this.adminAddProducts1 = new ChillCofee.AdminAddProducts();
             this.cashierCustomersForm1 = new ChillCofee.CashierCustomersForm();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.close = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -226,40 +226,6 @@
             this.panel2.Size = new System.Drawing.Size(1501, 907);
             this.panel2.TabIndex = 31;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1848, 63);
-            this.flowLayoutPanel1.TabIndex = 1;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
-            // 
-            // close
-            // 
-            this.close.AutoSize = true;
-            this.close.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.close.Location = new System.Drawing.Point(1967, 14);
-            this.close.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(22, 23);
-            this.close.TabIndex = 29;
-            this.close.Text = "X";
-            this.close.Click += new System.EventHandler(this.close_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(310, 22);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Chill Coffee Management System";
-            // 
             // adminDashboardForm1
             // 
             this.adminDashboardForm1.AutoScroll = true;
@@ -299,6 +265,40 @@
             this.cashierCustomersForm1.Name = "cashierCustomersForm1";
             this.cashierCustomersForm1.Size = new System.Drawing.Size(1649, 910);
             this.cashierCustomersForm1.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1848, 63);
+            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            // 
+            // close
+            // 
+            this.close.AutoSize = true;
+            this.close.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.close.Location = new System.Drawing.Point(1967, 14);
+            this.close.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(22, 23);
+            this.close.TabIndex = 29;
+            this.close.Text = "X";
+            this.close.Click += new System.EventHandler(this.close_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(310, 22);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Chill Coffee Management System";
             // 
             // AdminMainForm
             // 

@@ -214,6 +214,9 @@
     <None Include="Resources\Screenshot_2025-09-16_000942-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\vv.jpg" />
+    <None Include="Resources\cc.jpg" />
+    <None Include="Resources\bb.jpg" />
     <Content Include="Resources\icons8_group_90px_1.png" />
     <Content Include="Resources\icons8_money_90px.png" />
     <Content Include="Resources\icons8_Money_Bag_Bitcoin_90px.png" />

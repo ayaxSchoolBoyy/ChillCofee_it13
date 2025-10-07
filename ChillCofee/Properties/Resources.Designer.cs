@@ -63,6 +63,26 @@ namespace ChillCofee.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bb {
+            get {
+                object obj = ResourceManager.GetObject("bb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cc {
+            get {
+                object obj = ResourceManager.GetObject("cc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_group_90px_1 {
             get {
                 object obj = ResourceManager.GetObject("icons8_group_90px_1", resourceCulture);
@@ -106,6 +126,16 @@ namespace ChillCofee.Properties {
         internal static System.Drawing.Bitmap Screenshot_2025_09_16_000942_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("Screenshot_2025-09-16_000942-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vv {
+            get {
+                object obj = ResourceManager.GetObject("vv", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -53,7 +53,7 @@ namespace ChillCofee
         private void dashboard_btn_Click(object sender, EventArgs e)
         {
             adminDashboardForm1.Visible = true;
-            adminAddProducts1.Visible = false;
+           
             cashierOrderForm1.Visible = false;
             cashierCustomersForm1.Visible = true;
 
@@ -69,7 +69,7 @@ namespace ChillCofee
         private void addProducts_btn_Click(object sender, EventArgs e)
         {
             adminDashboardForm1.Visible = false;
-            adminAddProducts1.Visible = false;
+           
             cashierOrderForm1.Visible = true;
             cashierCustomersForm1.Visible = false;
 
@@ -85,7 +85,7 @@ namespace ChillCofee
         private void order_btn_Click(object sender, EventArgs e)
         {
             adminDashboardForm1.Visible = false;
-            adminAddProducts1.Visible = false;
+            
             cashierOrderForm1.Visible = true;
             cashierCustomersForm1.Visible = false;
 
@@ -101,7 +101,7 @@ namespace ChillCofee
         private void customer_btn_Click(object sender, EventArgs e)
         {
             adminDashboardForm1.Visible = false;
-            adminAddProducts1.Visible = false;
+           
             cashierOrderForm1.Visible = true;
             cashierCustomersForm1.Visible = false;
 
