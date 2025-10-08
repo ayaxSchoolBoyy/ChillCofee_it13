@@ -1,10 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.X509;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data;
-using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.Drawing;
 using System.Drawing.Printing;
@@ -694,7 +695,7 @@ namespace ChillCofee
             // 🏪 Header
             e.Graphics.DrawString("Chill Coffee", headerFont, brush, pageWidth / 2, y, center);
             y += 18;
-            e.Graphics.DrawString("123 Brew St., Coffee City", subHeaderFont, brush, pageWidth / 2, y, center);
+            e.Graphics.DrawString("123 Arellano St., Tagum City", subHeaderFont, brush, pageWidth / 2, y, center);
             y += 12;
             e.Graphics.DrawString("Tel: (123) 456-7890", subHeaderFont, brush, pageWidth / 2, y, center);
             y += 18;
@@ -837,6 +838,21 @@ namespace ChillCofee
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void addProducts_btn_Click(object sender, EventArgs e)
+        {
+            displayAvailableProds("All");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            displayAvailableProds("Drinks");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            displayAvailableProds("Meal");
         }
     }
     

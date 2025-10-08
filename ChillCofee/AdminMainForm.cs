@@ -12,9 +12,13 @@ namespace ChillCofee
 {
     public partial class AdminMainForm : Form
     {
-        public AdminMainForm()
+        private string loggedInUser;
+        public AdminMainForm(string usernamelbl)
         {
             InitializeComponent();
+            loggedInUser = usernamelbl;
+            label4.Text = loggedInUser;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -107,7 +111,7 @@ namespace ChillCofee
 
         private void adminDashboardForm1_Load(object sender, EventArgs e)
         {
-
+            this.MinimumSize = new Size(1366, 768);
         }
 
         private void adminAddUsers1_Load(object sender, EventArgs e)
@@ -116,6 +120,21 @@ namespace ChillCofee
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

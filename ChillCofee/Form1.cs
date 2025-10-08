@@ -92,14 +92,14 @@ namespace ChillCofee
 
                                     if (userRole == "Admin")
                                     {
-                                        AdminMainForm adminForm = new AdminMainForm();
+                                        AdminMainForm adminForm = new AdminMainForm(login_username.Text);
                                         adminForm.Show();
 
                                         this.Hide();
                                     }
                                     else if (userRole == "Cashier")
                                     {
-                                        CashierMainForm cashierForm = new CashierMainForm();
+                                        CashierMainForm cashierForm = new CashierMainForm(login_username.Text);
                                         cashierForm.Show();
                                         this.Hide();
 

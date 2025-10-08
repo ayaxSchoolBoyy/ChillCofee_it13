@@ -16,8 +16,8 @@ namespace ChillCofee
         // Only keep the ones auto-generated in Designer.cs
         // If you need to reference cashierOrderForm1, declare it here:
         private CashierOrderForm cashierOrderForm1 = new CashierOrderForm();
-
-        public CashierMainForm()
+        private string loggedInUser;
+        public CashierMainForm(string usernamelbl)
         {
             InitializeComponent();
             // Add the cashierOrderForm1 to panel2 and set its initial visibility
@@ -25,6 +25,9 @@ namespace ChillCofee
             cashierOrderForm1.Size = new Size(1240, 739);
             cashierOrderForm1.Visible = false;
             panel2.Controls.Add(cashierOrderForm1);
+            loggedInUser = usernamelbl;
+            label4.Text = loggedInUser;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void close_Click(object sender, EventArgs e)
@@ -55,10 +58,10 @@ namespace ChillCofee
             adminDashboardForm1.Visible = true;
            
             cashierOrderForm1.Visible = false;
-            cashierCustomersForm1.Visible = true;
+            cashierCustomersForm1.Visible = false;
 
             AdminDashboardForm adForm = adminDashboardForm1 as AdminDashboardForm;
-            CashierCustomersForm ccForm = cashierCustomersForm1 as CashierCustomersForm;
+            
 
             if (adForm != null)
             {
@@ -120,6 +123,31 @@ namespace ChillCofee
         }
 
         private void adminDashboardForm1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            adminDashboardForm1.Visible = false;
+            cashierOrderForm1.Visible = false;
+            cashierCustomersForm1.Visible = true;
+
+            
+            CashierCustomersForm ccForm = cashierCustomersForm1 as CashierCustomersForm;
+
+            if (ccForm != null)
+            {
+                ccForm.refreshData();
+            }
+        }
+
+        private void username_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

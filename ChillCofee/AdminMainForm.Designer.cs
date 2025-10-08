@@ -64,11 +64,11 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 63);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(0, 51);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(347, 907);
+            this.panel1.Size = new System.Drawing.Size(260, 589);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // logout_btn
             // 
@@ -80,10 +80,9 @@
             this.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logout_btn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.logout_btn.ForeColor = System.Drawing.Color.White;
-            this.logout_btn.Location = new System.Drawing.Point(25, 811);
-            this.logout_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.logout_btn.Location = new System.Drawing.Point(19, 659);
             this.logout_btn.Name = "logout_btn";
-            this.logout_btn.Size = new System.Drawing.Size(296, 53);
+            this.logout_btn.Size = new System.Drawing.Size(222, 43);
             this.logout_btn.TabIndex = 36;
             this.logout_btn.Text = "Logout";
             this.logout_btn.UseVisualStyleBackColor = false;
@@ -99,10 +98,9 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(23, 597);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Location = new System.Drawing.Point(17, 485);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(296, 53);
+            this.button3.Size = new System.Drawing.Size(222, 43);
             this.button3.TabIndex = 35;
             this.button3.Text = "Transactions";
             this.button3.UseVisualStyleBackColor = false;
@@ -118,10 +116,9 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(23, 526);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Location = new System.Drawing.Point(17, 427);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(296, 53);
+            this.button4.Size = new System.Drawing.Size(222, 43);
             this.button4.TabIndex = 34;
             this.button4.Text = "Add Products";
             this.button4.UseVisualStyleBackColor = false;
@@ -137,10 +134,9 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(23, 454);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(17, 369);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(296, 53);
+            this.button2.Size = new System.Drawing.Size(222, 43);
             this.button2.TabIndex = 33;
             this.button2.Text = "Add Employee";
             this.button2.UseVisualStyleBackColor = false;
@@ -156,10 +152,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(23, 382);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(17, 310);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(296, 53);
+            this.button1.Size = new System.Drawing.Size(222, 43);
             this.button1.TabIndex = 31;
             this.button1.Text = "Dashboard";
             this.button1.UseVisualStyleBackColor = false;
@@ -170,22 +165,21 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(191, 298);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(143, 242);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 20);
+            this.label4.Size = new System.Drawing.Size(48, 15);
             this.label4.TabIndex = 32;
             this.label4.Text = "Admin";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(81, 298);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(61, 242);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 20);
+            this.label3.Size = new System.Drawing.Size(78, 15);
             this.label3.TabIndex = 31;
             this.label3.Text = "Username:";
             // 
@@ -194,10 +188,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(55, 252);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(41, 205);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(228, 34);
+            this.label2.Size = new System.Drawing.Size(181, 28);
             this.label2.TabIndex = 31;
             this.label2.Text = "Admin\'s Portal";
             // 
@@ -206,10 +199,9 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::ChillCofee.Properties.Resources.Screenshot_2025_09_16_000942_removebg_preview;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(61, 39);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(46, 32);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(232, 209);
+            this.pictureBox1.Size = new System.Drawing.Size(174, 170);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
@@ -219,31 +211,30 @@
             this.panel2.Controls.Add(this.adminAddUsers1);
             this.panel2.Controls.Add(this.adminAddProducts1);
             this.panel2.Controls.Add(this.cashierCustomersForm1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(347, 63);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(260, 51);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1501, 907);
+            this.panel2.Size = new System.Drawing.Size(1126, 737);
             this.panel2.TabIndex = 31;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // adminDashboardForm1
             // 
             this.adminDashboardForm1.AutoScroll = true;
             this.adminDashboardForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.adminDashboardForm1.Location = new System.Drawing.Point(0, 0);
-            this.adminDashboardForm1.Margin = new System.Windows.Forms.Padding(5);
+            this.adminDashboardForm1.Margin = new System.Windows.Forms.Padding(4);
             this.adminDashboardForm1.Name = "adminDashboardForm1";
-            this.adminDashboardForm1.Size = new System.Drawing.Size(1679, 910);
+            this.adminDashboardForm1.Size = new System.Drawing.Size(1126, 737);
             this.adminDashboardForm1.TabIndex = 4;
             this.adminDashboardForm1.Load += new System.EventHandler(this.adminDashboardForm1_Load);
             // 
             // adminAddUsers1
             // 
             this.adminAddUsers1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
-            this.adminAddUsers1.Location = new System.Drawing.Point(0, 0);
-            this.adminAddUsers1.Margin = new System.Windows.Forms.Padding(5);
+            this.adminAddUsers1.Location = new System.Drawing.Point(-4, 0);
+            this.adminAddUsers1.Margin = new System.Windows.Forms.Padding(4);
             this.adminAddUsers1.Name = "adminAddUsers1";
-            this.adminAddUsers1.Size = new System.Drawing.Size(1501, 907);
+            this.adminAddUsers1.Size = new System.Drawing.Size(1126, 737);
             this.adminAddUsers1.TabIndex = 3;
             this.adminAddUsers1.Load += new System.EventHandler(this.adminAddUsers1_Load);
             // 
@@ -251,9 +242,9 @@
             // 
             this.adminAddProducts1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.adminAddProducts1.Location = new System.Drawing.Point(0, 0);
-            this.adminAddProducts1.Margin = new System.Windows.Forms.Padding(5);
+            this.adminAddProducts1.Margin = new System.Windows.Forms.Padding(4);
             this.adminAddProducts1.Name = "adminAddProducts1";
-            this.adminAddProducts1.Size = new System.Drawing.Size(1679, 910);
+            this.adminAddProducts1.Size = new System.Drawing.Size(1259, 739);
             this.adminAddProducts1.TabIndex = 1;
             // 
             // cashierCustomersForm1
@@ -261,9 +252,9 @@
             this.cashierCustomersForm1.AutoScroll = true;
             this.cashierCustomersForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.cashierCustomersForm1.Location = new System.Drawing.Point(0, 0);
-            this.cashierCustomersForm1.Margin = new System.Windows.Forms.Padding(5);
+            this.cashierCustomersForm1.Margin = new System.Windows.Forms.Padding(4);
             this.cashierCustomersForm1.Name = "cashierCustomersForm1";
-            this.cashierCustomersForm1.Size = new System.Drawing.Size(1649, 910);
+            this.cashierCustomersForm1.Size = new System.Drawing.Size(1237, 739);
             this.cashierCustomersForm1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -271,9 +262,8 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1848, 63);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1040, 51);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
@@ -281,10 +271,9 @@
             // 
             this.close.AutoSize = true;
             this.close.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.close.Location = new System.Drawing.Point(1967, 14);
-            this.close.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.close.Location = new System.Drawing.Point(1475, 11);
             this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(22, 23);
+            this.close.Size = new System.Drawing.Size(18, 18);
             this.close.TabIndex = 29;
             this.close.Text = "X";
             this.close.Click += new System.EventHandler(this.close_Click);
@@ -293,25 +282,23 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(14, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(310, 22);
+            this.label1.Size = new System.Drawing.Size(246, 17);
             this.label1.TabIndex = 30;
             this.label1.Text = "Chill Coffee Management System";
             // 
             // AdminMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1848, 970);
+            this.ClientSize = new System.Drawing.Size(1040, 640);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.close);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminMainForm";
             this.Text = "AdminMainForm";
             this.panel1.ResumeLayout(false);
