@@ -12,7 +12,7 @@ namespace ChillCofee
 {
     public partial class AdminMainForm : Form
     {
-        private string loggedInUser;
+        public string loggedInUser;
         public AdminMainForm(string usernamelbl)
         {
             InitializeComponent();

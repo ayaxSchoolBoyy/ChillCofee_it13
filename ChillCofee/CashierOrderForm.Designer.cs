@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierOrderForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -90,7 +90,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(109)))), ((int)(((byte)(82)))));
+            this.button2.BackColor = System.Drawing.Color.Chocolate;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(56)))), ((int)(((byte)(41)))));
@@ -98,9 +98,9 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(378, 25);
+            this.button2.Location = new System.Drawing.Point(194, 68);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 41);
+            this.button2.Size = new System.Drawing.Size(138, 41);
             this.button2.TabIndex = 36;
             this.button2.Text = "Meals";
             this.button2.UseVisualStyleBackColor = false;
@@ -108,7 +108,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(109)))), ((int)(((byte)(82)))));
+            this.button1.BackColor = System.Drawing.Color.SandyBrown;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(56)))), ((int)(((byte)(41)))));
@@ -116,9 +116,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(260, 25);
+            this.button1.Location = new System.Drawing.Point(345, 68);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 41);
+            this.button1.Size = new System.Drawing.Size(138, 41);
             this.button1.TabIndex = 35;
             this.button1.Text = "Drinks";
             this.button1.UseVisualStyleBackColor = false;
@@ -134,9 +134,9 @@
             this.addProducts_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addProducts_btn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addProducts_btn.ForeColor = System.Drawing.Color.White;
-            this.addProducts_btn.Location = new System.Drawing.Point(143, 25);
+            this.addProducts_btn.Location = new System.Drawing.Point(41, 68);
             this.addProducts_btn.Name = "addProducts_btn";
-            this.addProducts_btn.Size = new System.Drawing.Size(107, 41);
+            this.addProducts_btn.Size = new System.Drawing.Size(138, 41);
             this.addProducts_btn.TabIndex = 34;
             this.addProducts_btn.Text = "All Items";
             this.addProducts_btn.UseVisualStyleBackColor = false;
@@ -145,35 +145,36 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 105);
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(245)))), ((int)(((byte)(241)))));
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 130);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1082, 838);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1041, 790);
             this.flowLayoutPanel1.TabIndex = 4;
             this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 24);
+            this.label1.Font = new System.Drawing.Font("Segoe Fluent Icons", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(38, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 33);
+            this.label1.Size = new System.Drawing.Size(96, 35);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Menu";
+            this.label1.Text = "MENU";
             // 
             // cashierOrderForm_menuTable
             // 
             this.cashierOrderForm_menuTable.AllowUserToAddRows = false;
             this.cashierOrderForm_menuTable.AllowUserToDeleteRows = false;
             this.cashierOrderForm_menuTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cashierOrderForm_menuTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cashierOrderForm_menuTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.cashierOrderForm_menuTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cashierOrderForm_menuTable.EnableHeadersVisualStyles = false;
             this.cashierOrderForm_menuTable.Location = new System.Drawing.Point(55, 229);
@@ -353,7 +354,7 @@
             // 
             // cashierOrderForm_clearBtn
             // 
-            this.cashierOrderForm_clearBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(109)))), ((int)(((byte)(82)))));
+            this.cashierOrderForm_clearBtn.BackColor = System.Drawing.Color.BurlyWood;
             this.cashierOrderForm_clearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cashierOrderForm_clearBtn.FlatAppearance.BorderSize = 0;
             this.cashierOrderForm_clearBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(56)))), ((int)(((byte)(41)))));
@@ -393,10 +394,10 @@
             // checkBox1
             // 
             this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(109)))), ((int)(((byte)(82)))));
+            this.checkBox1.BackColor = System.Drawing.Color.Peru;
             this.checkBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(168)))), ((int)(((byte)(79)))));
+            this.checkBox1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Red;
             this.checkBox1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(56)))), ((int)(((byte)(41)))));
             this.checkBox1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(67)))), ((int)(((byte)(53)))));
             this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -414,9 +415,9 @@
             // 
             // cashierOrderForm_orderList
             // 
-            this.cashierOrderForm_orderList.Location = new System.Drawing.Point(25, 47);
+            this.cashierOrderForm_orderList.Location = new System.Drawing.Point(29, 47);
             this.cashierOrderForm_orderList.Name = "cashierOrderForm_orderList";
-            this.cashierOrderForm_orderList.Size = new System.Drawing.Size(387, 341);
+            this.cashierOrderForm_orderList.Size = new System.Drawing.Size(387, 421);
             this.cashierOrderForm_orderList.TabIndex = 30;
             this.cashierOrderForm_orderList.Text = "";
             // 
@@ -442,7 +443,7 @@
             // 
             this.cashierOrderForm_change.AutoSize = true;
             this.cashierOrderForm_change.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cashierOrderForm_change.Location = new System.Drawing.Point(178, 599);
+            this.cashierOrderForm_change.Location = new System.Drawing.Point(178, 609);
             this.cashierOrderForm_change.Name = "cashierOrderForm_change";
             this.cashierOrderForm_change.Size = new System.Drawing.Size(21, 22);
             this.cashierOrderForm_change.TabIndex = 26;
@@ -452,7 +453,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(46, 599);
+            this.label13.Location = new System.Drawing.Point(46, 609);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(131, 22);
             this.label13.TabIndex = 25;
@@ -462,7 +463,7 @@
             // 
             this.cashierOrderForm_amount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cashierOrderForm_amount.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cashierOrderForm_amount.Location = new System.Drawing.Point(181, 555);
+            this.cashierOrderForm_amount.Location = new System.Drawing.Point(181, 565);
             this.cashierOrderForm_amount.Name = "cashierOrderForm_amount";
             this.cashierOrderForm_amount.Size = new System.Drawing.Size(119, 29);
             this.cashierOrderForm_amount.TabIndex = 5;
@@ -473,7 +474,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(45, 560);
+            this.label11.Location = new System.Drawing.Point(45, 570);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(132, 22);
             this.label11.TabIndex = 4;
@@ -483,7 +484,7 @@
             // 
             this.cashierOrderForm_orderPrice.AutoSize = true;
             this.cashierOrderForm_orderPrice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cashierOrderForm_orderPrice.Location = new System.Drawing.Point(177, 518);
+            this.cashierOrderForm_orderPrice.Location = new System.Drawing.Point(177, 528);
             this.cashierOrderForm_orderPrice.Name = "cashierOrderForm_orderPrice";
             this.cashierOrderForm_orderPrice.Size = new System.Drawing.Size(43, 22);
             this.cashierOrderForm_orderPrice.TabIndex = 23;
@@ -493,7 +494,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(57, 518);
+            this.label10.Location = new System.Drawing.Point(57, 528);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(120, 22);
             this.label10.TabIndex = 22;
@@ -504,23 +505,24 @@
             // 
             this.cashierOrderForm_orderTable.AllowUserToAddRows = false;
             this.cashierOrderForm_orderTable.AllowUserToDeleteRows = false;
+            this.cashierOrderForm_orderTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(109)))), ((int)(((byte)(82)))));
             this.cashierOrderForm_orderTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cashierOrderForm_orderTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cashierOrderForm_orderTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.cashierOrderForm_orderTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cashierOrderForm_orderTable.EnableHeadersVisualStyles = false;
-            this.cashierOrderForm_orderTable.Location = new System.Drawing.Point(14, 35);
+            this.cashierOrderForm_orderTable.Location = new System.Drawing.Point(17, 35);
             this.cashierOrderForm_orderTable.Name = "cashierOrderForm_orderTable";
             this.cashierOrderForm_orderTable.ReadOnly = true;
             this.cashierOrderForm_orderTable.RowHeadersVisible = false;
             this.cashierOrderForm_orderTable.RowHeadersWidth = 51;
-            this.cashierOrderForm_orderTable.Size = new System.Drawing.Size(413, 369);
+            this.cashierOrderForm_orderTable.Size = new System.Drawing.Size(413, 449);
             this.cashierOrderForm_orderTable.TabIndex = 4;
             // 
             // cashierOrderForm_receiptBtn

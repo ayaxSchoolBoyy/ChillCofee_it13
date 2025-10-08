@@ -42,10 +42,10 @@
             this.close = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.adminDashboardForm1 = new ChillCofee.AdminDashboardForm();
+            this.adminAddUsers1 = new ChillCofee.AdminAddUsers();
             this.adminAddProducts1 = new ChillCofee.AdminAddProducts();
             this.cashierCustomersForm1 = new ChillCofee.CashierCustomersForm();
-            this.adminAddUsers1 = new ChillCofee.AdminAddUsers();
-            this.adminDashboardForm1 = new ChillCofee.AdminDashboardForm();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -165,7 +165,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(170, 312);
+            this.label4.Location = new System.Drawing.Point(84, 896);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 18);
             this.label4.TabIndex = 32;
@@ -177,18 +177,18 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(78, 312);
+            this.label3.Location = new System.Drawing.Point(15, 896);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 18);
+            this.label3.Size = new System.Drawing.Size(67, 18);
             this.label3.TabIndex = 31;
-            this.label3.Text = "Username:";
+            this.label3.Text = "ADMIN:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(45, 268);
+            this.label2.Location = new System.Drawing.Point(34, 294);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(221, 33);
             this.label2.TabIndex = 31;
@@ -250,6 +250,22 @@
             this.panel2.TabIndex = 31;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // adminDashboardForm1
+            // 
+            this.adminDashboardForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(199)))), ((int)(((byte)(170)))));
+            this.adminDashboardForm1.Location = new System.Drawing.Point(1, 1);
+            this.adminDashboardForm1.Name = "adminDashboardForm1";
+            this.adminDashboardForm1.Size = new System.Drawing.Size(1604, 999);
+            this.adminDashboardForm1.TabIndex = 3;
+            // 
+            // adminAddUsers1
+            // 
+            this.adminAddUsers1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(245)))), ((int)(((byte)(241)))));
+            this.adminAddUsers1.Location = new System.Drawing.Point(1, 1);
+            this.adminAddUsers1.Name = "adminAddUsers1";
+            this.adminAddUsers1.Size = new System.Drawing.Size(1604, 999);
+            this.adminAddUsers1.TabIndex = 2;
+            // 
             // adminAddProducts1
             // 
             this.adminAddProducts1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
@@ -265,22 +281,6 @@
             this.cashierCustomersForm1.Name = "cashierCustomersForm1";
             this.cashierCustomersForm1.Size = new System.Drawing.Size(1604, 999);
             this.cashierCustomersForm1.TabIndex = 0;
-            // 
-            // adminAddUsers1
-            // 
-            this.adminAddUsers1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(245)))), ((int)(((byte)(241)))));
-            this.adminAddUsers1.Location = new System.Drawing.Point(1, 1);
-            this.adminAddUsers1.Name = "adminAddUsers1";
-            this.adminAddUsers1.Size = new System.Drawing.Size(1604, 999);
-            this.adminAddUsers1.TabIndex = 2;
-            // 
-            // adminDashboardForm1
-            // 
-            this.adminDashboardForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(199)))), ((int)(((byte)(170)))));
-            this.adminDashboardForm1.Location = new System.Drawing.Point(1, 1);
-            this.adminDashboardForm1.Name = "adminDashboardForm1";
-            this.adminDashboardForm1.Size = new System.Drawing.Size(1604, 999);
-            this.adminDashboardForm1.TabIndex = 3;
             // 
             // AdminMainForm
             // 

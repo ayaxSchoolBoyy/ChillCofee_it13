@@ -28,6 +28,7 @@ namespace ChillCofee
 
         MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;");
         public CashierOrderForm()
+
         {
             InitializeComponent();
 
@@ -338,7 +339,7 @@ namespace ChillCofee
         public void displayAllOrders()
         {
             cashierOrderForm_orderList.Clear();
-            cashierOrderForm_orderList.Font = new Font("Consolas", 10);
+            cashierOrderForm_orderList.Font = new Font("Consolas", 12);
 
             try
             {
@@ -352,8 +353,8 @@ namespace ChillCofee
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             cashierOrderForm_orderList.AppendText(String.Format("\n"));
-                            cashierOrderForm_orderList.AppendText(String.Format("\t{0,-20}{1,-10}{2,-10}\n", "Product", "Qty", "Price"));
-                            cashierOrderForm_orderList.AppendText(new string('-', 46) + "\n");
+                            cashierOrderForm_orderList.AppendText(String.Format("\t{0,-12}{1,-10}{2,-10}\n", "Product", "Qty", "Price"));
+                            cashierOrderForm_orderList.AppendText(new string('-', 42) + "\n");
 
                             while (reader.Read())
                             {
