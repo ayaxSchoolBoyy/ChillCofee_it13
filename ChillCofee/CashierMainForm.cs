@@ -57,7 +57,7 @@ namespace ChillCofee
         {
             adminDashboardForm1.Visible = true;
            
-            cashierOrderForm1.Visible = false;
+            cashierOrderForm2.Visible = false;
             cashierCustomersForm1.Visible = false;
 
             AdminDashboardForm adForm = adminDashboardForm1 as AdminDashboardForm;
@@ -73,7 +73,7 @@ namespace ChillCofee
         {
             adminDashboardForm1.Visible = false;
            
-            cashierOrderForm1.Visible = true;
+            cashierOrderForm2.Visible = true;
             cashierCustomersForm1.Visible = false;
 
             CashierOrderForm coForm = cashierOrderForm1 as CashierOrderForm;
@@ -89,7 +89,7 @@ namespace ChillCofee
         {
             adminDashboardForm1.Visible = false;
             
-            cashierOrderForm1.Visible = true;
+            cashierOrderForm2.Visible = true;
             cashierCustomersForm1.Visible = false;
 
             CashierOrderForm coForm = cashierOrderForm1 as CashierOrderForm;
@@ -105,7 +105,7 @@ namespace ChillCofee
         {
             adminDashboardForm1.Visible = false;
            
-            cashierOrderForm1.Visible = true;
+            cashierOrderForm2.Visible = true;
             cashierCustomersForm1.Visible = false;
 
             CashierOrderForm coForm = cashierOrderForm1 as CashierOrderForm;
@@ -130,7 +130,7 @@ namespace ChillCofee
         private void button3_Click(object sender, EventArgs e)
         {
             adminDashboardForm1.Visible = false;
-            cashierOrderForm1.Visible = false;
+            cashierOrderForm2.Visible = false;
             cashierCustomersForm1.Visible = true;
 
             

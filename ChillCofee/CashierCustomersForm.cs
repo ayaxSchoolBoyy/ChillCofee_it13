@@ -146,5 +146,10 @@ namespace ChillCofee
             DateTime endDate = dateTimePicker2.Value.Date.AddDays(1).AddSeconds(-1); // full day range
             LoadTransactionsByDate(startDate, endDate);
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
