@@ -42,8 +42,11 @@ namespace ChillCofee
             dataGridView1.DataSource = listData;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-
-
+            if (dataGridView1.Columns.Contains("id"))
+            {
+                dataGridView1.Columns["id"].Visible = false;
+            }
+            
         }
         public bool emptyFields()
         {
@@ -94,7 +97,7 @@ namespace ChillCofee
                                 string insertData = "INSERT INTO users (username, password, role, status, date_rag) " +
                                         "VALUES(@usern, @pass, @role, @status, @date)";
 
-                                DateTime today = DateTime.Today;
+                                DateTime today = DateTime.Now;
 
                                 
 

@@ -62,7 +62,8 @@ namespace ChillCofee
                 using (MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;"))
                 {
                     connect.Open();
-                    string query = "SELECT prod_id, prod_name, prod_type, prod_price, prod_image FROM products WHERE prod_status = 'Available' AND date_delete IS NULL";
+                    string query = "SELECT prod_id, prod_name, prod_type, prod_price, prod_stock, prod_image " +
+                                   "FROM products WHERE prod_status = 'Available' AND date_delete IS NULL";
 
                     if (category != "All")
                     {
@@ -83,13 +84,14 @@ namespace ChillCofee
                                 string prodID = reader["prod_id"].ToString();
                                 string prodName = reader["prod_name"].ToString();
                                 string prodType = reader["prod_type"].ToString();
-                                string prodPrice = reader["prod_price"].ToString();
+                                decimal prodPrice = Convert.ToDecimal(reader["prod_price"]);
+                                int prodStock = Convert.ToInt32(reader["prod_stock"]);
                                 string imagePath = reader["prod_image"].ToString();
 
                                 Panel card = new Panel
                                 {
                                     Width = 150,
-                                    Height = 180,
+                                    Height = 190,
                                     BackColor = Color.WhiteSmoke,
                                     BorderStyle = BorderStyle.FixedSingle,
                                     Margin = new Padding(10),
@@ -112,17 +114,53 @@ namespace ChillCofee
                                 }
                                 catch { }
 
-                                Label lbl = new Label
+                                // Product name
+                                Label lblName = new Label
                                 {
-                                    Dock = DockStyle.Fill,
+                                    Dock = DockStyle.Top,
+                                    Height = 30,
                                     TextAlign = ContentAlignment.MiddleCenter,
                                     Font = new Font("Segoe UI", 9, FontStyle.Bold),
-                                    Text = $"{prodName}\n₱{prodPrice}"
+                                    Text = prodName
                                 };
 
+                                // Price
+                                Label lblPrice = new Label
+                                {
+                                    Dock = DockStyle.Top,
+                                    Height = 20,
+                                    TextAlign = ContentAlignment.MiddleCenter,
+                                    Font = new Font("Segoe UI", 9, FontStyle.Regular),
+                                    Text = $"₱{prodPrice:N2}"
+                                };
+
+                                // Stock label (with color indicator)
+                                Label lblStock = new Label
+                                {
+                                    Dock = DockStyle.Top,
+                                    Height = 20,
+                                    TextAlign = ContentAlignment.MiddleCenter,
+                                    Font = new Font("Segoe UI", 9, FontStyle.Regular),
+                                    Text = $"Stock: {prodStock}"
+                                };
+
+                                // 🔴🟡🟢 Color indicator
+                                if (prodStock <= 5)
+                                    lblStock.ForeColor = Color.Red;
+                                else if (prodStock <= 10)
+                                    lblStock.ForeColor = Color.Orange;
+                                else
+                                    lblStock.ForeColor = Color.Green;
+
+                                // Add click event
                                 pic.Click += Product_Click;
-                                card.Controls.Add(lbl);
+
+                                // Add controls in order (bottom first)
+                                card.Controls.Add(lblStock);
+                                card.Controls.Add(lblPrice);
+                                card.Controls.Add(lblName);
                                 card.Controls.Add(pic);
+
                                 flowLayoutPanel1.Controls.Add(card);
                             }
                         }
@@ -196,7 +234,7 @@ namespace ChillCofee
                                             insertCmd.Parameters.AddWithValue("@name", name);
                                             insertCmd.Parameters.AddWithValue("@type", type);
                                             insertCmd.Parameters.AddWithValue("@price", price);
-                                            insertCmd.Parameters.AddWithValue("@date", DateTime.Today);
+                                            insertCmd.Parameters.AddWithValue("@date", DateTime.Now);
                                             insertCmd.ExecuteNonQuery();
                                         }
                                     }
@@ -462,7 +500,7 @@ namespace ChillCofee
                         string insertOrder = "INSERT INTO orders (transaction_id, prod_id, prod_name, prod_type, qty, prod_price, order_date) " +
                             "VALUES(@transactionID, @prodID, @prodName, @prodType, @qty, @prodPrice, @orderDate)";
 
-                        DateTime today = DateTime.Today;
+                        DateTime today = DateTime.Now;
 
                         using (MySqlCommand cmd = new MySqlCommand(insertOrder, connect))
                         {
@@ -576,7 +614,7 @@ namespace ChillCofee
                             cmd.Parameters.AddWithValue("@totalprice", totalPrice);
                             cmd.Parameters.AddWithValue("@amount", cashierOrderForm_amount.Text);
                             cmd.Parameters.AddWithValue("@change", cashierOrderForm_change.Text);
-                            cmd.Parameters.AddWithValue("@date", DateTime.Today);
+                            cmd.Parameters.AddWithValue("@date", DateTime.Now);
                             cmd.ExecuteNonQuery();
                         }
 

@@ -40,6 +40,10 @@ namespace ChillCofee
 
             datagridview1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            if (datagridview1.Columns.Contains("TransactionID"))
+            {
+                datagridview1.Columns["TransactionID"].Visible = false;
+            }
 
         }
 
@@ -150,6 +154,46 @@ namespace ChillCofee
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void clearAllButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to clear all transactions? This action cannot be undone.",
+                        "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                try
+                {
+                    using (MySqlConnection connect = new MySqlConnection("Server=localhost;Database=chillcoffee;Uid=root;Pwd=;"))
+                    {
+                        connect.Open();
+
+                        // 🧹 Delete all records from customers table
+                        string deleteCustomers = "DELETE FROM customers";
+                        using (MySqlCommand cmd = new MySqlCommand(deleteCustomers, connect))
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        // (Optional) If you also want to clear orders table:
+                        string deleteOrders = "DELETE FROM orders";
+                        using (MySqlCommand cmd2 = new MySqlCommand(deleteOrders, connect))
+                        {
+                           cmd2.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show("All transactions have been cleared successfully.",
+                                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // 🔄 Refresh the DataGridView after deleting
+                        LoadAllTransactions();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error clearing transactions: " + ex.Message,
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

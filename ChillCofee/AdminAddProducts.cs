@@ -56,6 +56,21 @@ namespace ChillCofee
             dataGridView1.DataSource = listData;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            if (dataGridView1.Columns.Contains("ProductID"))
+            {
+                dataGridView1.Columns["ProductID"].Visible = false;
+            }
+
+            if (dataGridView1.Columns.Contains("id"))
+            {
+                dataGridView1.Columns["id"].Visible = false;
+            }
+
+            if (dataGridView1.Columns.Contains("imagePath"))
+            {
+                dataGridView1.Columns["imagePath"].Visible = false;
+            }
+
         }
 
 
@@ -97,7 +112,7 @@ namespace ChillCofee
 
 
 
-                                DateTime today = DateTime.Today;
+                                DateTime today = DateTime.Now;
 
                                 
 
@@ -216,7 +231,7 @@ namespace ChillCofee
                             string updateData = "UPDATE products SET prod_name = @prodName, prod_type = @prodType, prod_stock = @prodStock, prod_price = @prodPrice, prod_status = @prodStatus, prod_image = @prodImage, date_update = @dateUpdate WHERE prod_id = @prodID";
 
 
-                            DateTime today = DateTime.Today;
+                            DateTime today = DateTime.Now;
 
                             using (MySqlCommand updateD = new MySqlCommand(updateData, connect))
                             {
@@ -269,7 +284,7 @@ namespace ChillCofee
                             connect.Open();
 
                             string updateData = "UPDATE products SET date_delete = @dateDelete WHERE prod_id = @prodID";
-                            DateTime today = DateTime.Today;
+                            DateTime today = DateTime.Now;
 
                             using (MySqlCommand updateD = new MySqlCommand(updateData, connect))
                             {
